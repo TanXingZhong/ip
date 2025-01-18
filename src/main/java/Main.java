@@ -7,7 +7,7 @@ public class Main {
         final BobAndSteve bob = new BobAndSteve();
         bob.greeting();
         while(scanner.hasNext()) {
-            bob.commands(scanner.next());
+            bob.commands(scanner.nextLine());
         };
     }
 }
