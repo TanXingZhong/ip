@@ -5,6 +5,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         final BobAndSteve bob = new BobAndSteve();
+        //test
         bob.greeting();
         while(scanner.hasNext()) {
             bob.commands(scanner.nextLine());
