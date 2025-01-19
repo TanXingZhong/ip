@@ -1,4 +1,4 @@
-package bobAndSteve.Task;
+package bobAndSteve.task;
 
 public class Task {
 
