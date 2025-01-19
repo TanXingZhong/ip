@@ -86,6 +86,18 @@ public class BobAndSteve {
                 this.taskList.mark(pos);
                 System.out.println(this.taskList.getTask(pos).toString());
             }
+            case "delete" -> {
+                if (split.length < 2) {
+                    throw new InvalidCommandFormatException("Deletes a task. Usage: delete <task number>");
+                }
+                int pos;
+                try {
+                    pos = Integer.parseInt(split[1]);
+                } catch (NumberFormatException e) {
+                    throw new InvalidCommandFormatException("The position must be a valid integer.");
+                }
+                this.taskList.deleteTask(pos);
+            }
             default -> throw new InvalidCommandException("Invalid command, Enter help to view all commands");
         }
     }

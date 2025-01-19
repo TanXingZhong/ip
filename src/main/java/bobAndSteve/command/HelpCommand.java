@@ -11,7 +11,7 @@ public class HelpCommand {
         System.out.println("deadline  - Adds a deadline. Usage: deadline <task> /by <date>");
         System.out.println("event     - Adds an event. Usage: event <task> /from <start> /to <end>");
         System.out.println("list      - Displays all tasks.");
-//        System.out.println("delete    - Deletes a task. Usage: delete <task number>");
+        System.out.println("delete    - Deletes a task. Usage: delete <task number>");
         System.out.println("bye       - Exits the program.");
         System.out.println("-------------------");
     }
