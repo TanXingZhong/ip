@@ -1,6 +1,7 @@
 package bobAndSteve;
 
 import bobAndSteve.command.ByeCommand;
+import bobAndSteve.command.CommandEnum;
 import bobAndSteve.command.HelpCommand;
 import bobAndSteve.exception.InvalidCommandException;
 import bobAndSteve.exception.InvalidCommandFormatException;
@@ -21,46 +22,53 @@ public class BobAndSteve {
 
     public void commands(String input) throws InvalidCommandFormatException, ListIndexOutOfBoundException, InvalidCommandException {
         String[] split = input.split(" ", 2);
-        String command = split[0];
+        CommandEnum command;
+        try {
+            command = CommandEnum.valueOf(split[0].trim().toUpperCase());
+        }
+        catch(IllegalArgumentException err) {
+            throw new InvalidCommandException("Invalid command, Enter help to view all commands");
+        }
+
         switch (command) {
-            case "bye" -> {
+            case BYE -> {
                 byeCommand.end();
             }
-            case "help" -> {
+            case HELP -> {
                 helpCommand.help();
             }
-            case "list" -> this.taskList.getList();
-            case "todo" -> {
+            case LIST -> this.taskList.getList();
+            case TODO -> {
                 if (split.length < 2 || split[1].isEmpty()) {
                     throw new InvalidCommandFormatException("You must specify the task in the format: <task>");
                 }
                 this.taskList.addTask(new Todo(split[1]));
             }
-            case "deadline" -> {
+            case DEADLINE -> {
                 if (split.length < 2) {
                     throw new InvalidCommandFormatException("You must specify the task and deadline in the format: <task> /by <deadline>");
                 }
                 String[] by = split[1].split("/by", 2);
-                if(by.length < 2 || by[0].trim().isEmpty() || by[1].trim().isEmpty()) {
+                if (by.length < 2 || by[0].trim().isEmpty() || by[1].trim().isEmpty()) {
                     throw new InvalidCommandFormatException("Invalid format. Use: <task> /by <deadline>");
                 }
                 this.taskList.addTask(new Deadline(by[0].trim(), by[1].trim()));
             }
-            case "event" -> {
+            case EVENT -> {
                 if (split.length < 2) {
                     throw new InvalidCommandFormatException("You must specify the task and deadline in the format: <task> /from <start> /to <end>");
                 }
                 String[] events = split[1].split("/from");
-                if(events.length < 2 || events[0].trim().isEmpty() || events[1].trim().isEmpty()) {
+                if (events.length < 2 || events[0].trim().isEmpty() || events[1].trim().isEmpty()) {
                     throw new InvalidCommandFormatException("Invalid format. Use: <task> /from <start> /to <end>");
                 }
                 String[] startEnd = events[1].split("/to");
-                if(startEnd.length < 2 || startEnd[0].trim().isEmpty() || startEnd[1].trim().isEmpty()) {
+                if (startEnd.length < 2 || startEnd[0].trim().isEmpty() || startEnd[1].trim().isEmpty()) {
                     throw new InvalidCommandFormatException("Invalid format. Use: <task> /from <start> /to <end>");
                 }
                 this.taskList.addTask(new Event(events[0].trim(), startEnd[0].trim(), startEnd[1].trim()));
             }
-            case "unmark" -> {
+            case UNMARK -> {
                 if (split.length < 2) {
                     throw new InvalidCommandFormatException("You must specify the position of the task to mark.");
                 }
@@ -73,7 +81,7 @@ public class BobAndSteve {
                 this.taskList.unmark(pos);
                 System.out.println(this.taskList.getTask(pos).toString());
             }
-            case "mark" -> {
+            case MARK -> {
                 if (split.length < 2) {
                     throw new InvalidCommandFormatException("You must specify the position of the task to mark.");
                 }
@@ -86,7 +94,7 @@ public class BobAndSteve {
                 this.taskList.mark(pos);
                 System.out.println(this.taskList.getTask(pos).toString());
             }
-            case "delete" -> {
+            case DELETE -> {
                 if (split.length < 2) {
                     throw new InvalidCommandFormatException("Deletes a task. Usage: delete <task number>");
                 }
@@ -98,7 +106,6 @@ public class BobAndSteve {
                 }
                 this.taskList.deleteTask(pos);
             }
-            default -> throw new InvalidCommandException("Invalid command, Enter help to view all commands");
         }
     }
 

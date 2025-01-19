@@ -28,13 +28,10 @@ Here are the tasks in your list:
 Noted. I've removed this task:
 [T][ ] borrow book
 Now you have 2 tasks in the list.
-Here are the tasks in your list:
-1.[D][ ] return book (by: sunday)
-2.[E][ ] project meeting (from : Mon 2pm to: 4pm)
 Nice! I've marked this task as done:
-[D][X] return book (by: sunday)
+[D][X] return book (by: Sunday)
 Noted. I've removed this task:
-[D][X] return book (by: sunday)
+[D][X] return book (by: Sunday)
 Now you have 1 tasks in the list.
 Noted. I've removed this task:
 [E][ ] project meeting (from : Mon 2pm to: 4pm)
