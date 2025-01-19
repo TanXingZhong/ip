@@ -1,6 +1,6 @@
 package bobAndSteve.task;
 
-public class Task {
+public abstract class Task {
 
     public String description;
     public Task (String description) {
