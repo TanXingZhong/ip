@@ -1,6 +1,12 @@
 package bobAndSteve.command;
 
-public class HelpCommand {
+import bobAndSteve.TaskList;
+import bobAndSteve.exception.BobAndSteveException;
+import fileHandler.FileHandler;
+
+import java.io.IOException;
+
+public class HelpCommand extends Command {
     public void help() {
         System.out.println("Available Commands:");
         System.out.println("-------------------");
@@ -14,5 +20,10 @@ public class HelpCommand {
         System.out.println("DELETE    - Deletes a task. Usage: delete <task number>");
         System.out.println("BYE       - Exits the program.");
         System.out.println("-------------------");
+    }
+
+    @Override
+    public void run(TaskList taskList, FileHandler fileHandler) throws BobAndSteveException, IOException {
+        this.help();
     }
 }
