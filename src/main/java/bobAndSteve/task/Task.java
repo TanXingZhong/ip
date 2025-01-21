@@ -1,5 +1,10 @@
 package bobAndSteve.task;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+
 public abstract class Task {
 
     public String description;
@@ -23,6 +28,10 @@ public abstract class Task {
     @Override
     public String toString() {
         return isDone + " " + description;
+    }
+
+    public String formatDate(LocalDate date, LocalTime time) {
+        return date.format(DateTimeFormatter.ofPattern("MMM d yyyy")) + " " + time.format(DateTimeFormatter.ofPattern("hh:mm a"));
     }
 
     public String toSaveFormat() {

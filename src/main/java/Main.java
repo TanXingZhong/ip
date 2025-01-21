@@ -20,15 +20,19 @@ public class Main {
         bob.greeting();
         File file = fh.loadFile();
         Scanner scanner = new Scanner(file);
-        while(scanner.hasNext()) {
-            String details = scanner.nextLine();
-            String[] type = details.split("\\|");
-            String isDone = type[1].trim().equals("1") ? "[X]" : "[ ]";
-            switch (type[0].trim()) {
-                case "T" -> taskList.addTask(new Todo(type[2].trim(), isDone));
-                case "D" -> taskList.addTask(new Deadline(type[2].trim(), isDone, type[3].trim()));
-                case "E" -> taskList.addTask(new Event(type[2].trim(), isDone, type[3].trim(), type[4].trim()));
+        try {
+            while(scanner.hasNext()) {
+                String details = scanner.nextLine();
+                String[] type = details.split("\\|");
+                String isDone = type[1].trim().equals("1") ? "[X]" : "[ ]";
+                switch (type[0].trim()) {
+                    case "T" -> taskList.addTask(new Todo(type[2].trim(), isDone));
+                    case "D" -> taskList.addTask(new Deadline(type[2].trim(), isDone, type[3].trim()));
+                    case "E" -> taskList.addTask(new Event(type[2].trim(), isDone, type[3].trim(), type[4].trim()));
+                }
             }
+        } catch(BobAndSteveException error) {
+            System.out.println(error.getMessage());
         }
         scanner = new Scanner(System.in);
         while(scanner.hasNext()) {
