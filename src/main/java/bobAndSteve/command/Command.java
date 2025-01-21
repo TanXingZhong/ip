@@ -2,7 +2,6 @@ package bobAndSteve.command;
 
 import bobAndSteve.TaskList;
 import bobAndSteve.exception.BobAndSteveException;
-import bobAndSteve.exception.InvalidCommandFormatException;
 import fileHandler.FileHandler;
 
 import java.io.IOException;

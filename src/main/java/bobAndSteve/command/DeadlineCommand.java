@@ -1,6 +1,7 @@
 package bobAndSteve.command;
 
 import bobAndSteve.TaskList;
+import bobAndSteve.exception.BobAndSteveException;
 import bobAndSteve.exception.InvalidCommandFormatException;
 import bobAndSteve.task.Deadline;
 import fileHandler.FileHandler;
@@ -26,7 +27,7 @@ public class DeadlineCommand extends Command {
     }
 
     @Override
-    public void run(TaskList taskList, FileHandler fileHandler) throws IOException {
+    public void run(TaskList taskList, FileHandler fileHandler) throws BobAndSteveException, IOException {
         Deadline deadline = new Deadline(description, "[ ]", by);
         taskList.addTask(deadline);
         fileHandler.writeFile(taskList);

@@ -14,10 +14,11 @@ public class EventCommand extends Command {
     private final String start;
     private final String end;
 
-    public EventCommand(String input) throws InvalidCommandFormatException{
+    public EventCommand(String input) throws InvalidCommandFormatException {
         String[] split = input.split(" ", 2);
         if (split[0].isEmpty()) {
-            throw new InvalidCommandFormatException("You must specify the task and deadline in the format: <task> /from <start> /to <end>");
+            throw new InvalidCommandFormatException("You must " +
+                    "specify the task and deadline in the format: <task> /from <start> /to <end>");
         }
         String[] events = split[1].split("/from", 2);
         if (events.length < 2 || events[0].trim().isEmpty() || events[1].trim().isEmpty()) {
@@ -32,14 +33,9 @@ public class EventCommand extends Command {
         this.end = startEnd[1].trim();
     }
 
-    public void run(TaskList taskList) {
-        Event event = new Event(description,  "[ ]", start, end);
-        taskList.addTask(event);
-    }
-
     @Override
     public void run(TaskList taskList, FileHandler fileHandler) throws BobAndSteveException, IOException {
-        Event event = new Event(description,  "[ ]", start, end);
+        Event event = new Event(description, "[ ]", start, end);
         taskList.addTask(event);
         fileHandler.writeFile(taskList);
     }
