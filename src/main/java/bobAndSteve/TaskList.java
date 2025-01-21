@@ -22,6 +22,7 @@ public class TaskList {
             throw new ListIndexOutOfBoundException("You only have " + this.getSize() + " tasks in the list.");
         }
         tasks.get(pos - 1).mark();
+        System.out.println(tasks.get(pos - 1).toString());
     }
 
     public void unmark(int pos) throws ListIndexOutOfBoundException {
@@ -31,6 +32,7 @@ public class TaskList {
             throw new ListIndexOutOfBoundException("You only have " + this.getSize() + " tasks in the list.");
         }
         tasks.get(pos - 1).unmark();
+        System.out.println(tasks.get(pos - 1).toString());
     }
 
     public Task getTask(int pos) {
@@ -62,5 +64,14 @@ public class TaskList {
             int index = i + 1;
             System.out.println(index + "." + tasks.get(i));
         }
+    }
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for(Task t : tasks) {
+            sb.append(t.toSaveFormat()).append("\n");
+        }
+        return sb.toString();
     }
 }
