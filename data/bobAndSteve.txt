@@ -1,4 +1,3 @@
 T | 1 | read book
 E | 1 | project meeting | 2019-10-10 10:30 | 2019-10-10 10:30
 T | 1 | cooking project
-T | 0 | read book
