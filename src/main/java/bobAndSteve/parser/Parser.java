@@ -1,4 +1,4 @@
-package bobAndSteve;
+package bobAndSteve.parser;
 
 import bobAndSteve.command.*;
 import bobAndSteve.exception.BobAndSteveException;

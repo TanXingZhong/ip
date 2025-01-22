@@ -1,11 +1,11 @@
 package bobAndSteve.command;
 
-import bobAndSteve.TaskList;
-import bobAndSteve.Ui;
 import bobAndSteve.exception.BobAndSteveException;
 import bobAndSteve.exception.InvalidCommandFormatException;
+import bobAndSteve.storage.Storage;
 import bobAndSteve.task.Deadline;
-import storage.Storage;
+import bobAndSteve.taskList.TaskList;
+import bobAndSteve.ui.Ui;
 
 public class DeadlineCommand extends Command {
 
@@ -26,10 +26,10 @@ public class DeadlineCommand extends Command {
     }
 
     @Override
-    public void execute(TaskList taskList, Ui ui, Storage fileHandler) throws BobAndSteveException {
+    public void execute(TaskList taskList, Ui ui, Storage storage) throws BobAndSteveException {
         Deadline deadline = new Deadline(description, "[ ]", by);
         taskList.addTask(deadline);
-        fileHandler.writeFile(taskList);
+        storage.writeFile(taskList);
     }
 
     @Override

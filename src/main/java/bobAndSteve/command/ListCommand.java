@@ -1,14 +1,14 @@
 package bobAndSteve.command;
 
-import bobAndSteve.TaskList;
-import bobAndSteve.Ui;
 import bobAndSteve.exception.BobAndSteveException;
-import storage.Storage;
+import bobAndSteve.storage.Storage;
+import bobAndSteve.taskList.TaskList;
+import bobAndSteve.ui.Ui;
 
 public class ListCommand extends Command {
 
     @Override
-    public void execute(TaskList taskList, Ui ui, Storage fileHandler) throws BobAndSteveException {
+    public void execute(TaskList taskList, Ui ui, Storage storage) throws BobAndSteveException {
         taskList.getList();
     }
 

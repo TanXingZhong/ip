@@ -2,9 +2,10 @@ package bobAndSteve;
 
 import bobAndSteve.command.Command;
 import bobAndSteve.exception.BobAndSteveException;
-import storage.Storage;
-
-import java.io.IOException;
+import bobAndSteve.parser.Parser;
+import bobAndSteve.storage.Storage;
+import bobAndSteve.taskList.TaskList;
+import bobAndSteve.ui.Ui;
 
 public class BobAndSteve {
 
@@ -33,7 +34,7 @@ public class BobAndSteve {
                 Command c = Parser.parse(fullCommand);
                 c.execute(taskList, ui, storage);
                 isExit = c.isExit();
-            } catch (BobAndSteveException | IOException e) {
+            } catch (BobAndSteveException e) {
                 ui.showError(e.getMessage());
             } finally {
                 ui.showLine();

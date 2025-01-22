@@ -1,4 +1,4 @@
-package bobAndSteve;
+package bobAndSteve.ui;
 
 import java.util.Scanner;
 
@@ -26,11 +26,11 @@ public class Ui {
     }
 
     public void showError(String errorMessage) {
-        System.err.println("Error: " + errorMessage);
+        System.out.println("Error: " + errorMessage);
     }
 
     public void showLoadingError() {
-        System.err.println("Error: Failed to load resources. Please try again.");
+        System.out.println("Error: Failed to load resources. Please try again.");
     }
 
 

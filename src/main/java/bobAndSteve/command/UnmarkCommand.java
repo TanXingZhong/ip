@@ -1,10 +1,10 @@
 package bobAndSteve.command;
 
-import bobAndSteve.TaskList;
-import bobAndSteve.Ui;
 import bobAndSteve.exception.BobAndSteveException;
 import bobAndSteve.exception.InvalidCommandFormatException;
-import storage.Storage;
+import bobAndSteve.storage.Storage;
+import bobAndSteve.taskList.TaskList;
+import bobAndSteve.ui.Ui;
 
 public class UnmarkCommand extends Command {
 
@@ -23,9 +23,9 @@ public class UnmarkCommand extends Command {
     }
 
     @Override
-    public void execute(TaskList taskList, Ui ui, Storage fileHandler) throws BobAndSteveException {
+    public void execute(TaskList taskList, Ui ui, Storage storage) throws BobAndSteveException {
         taskList.unmark(pos);
-        fileHandler.writeFile(taskList);
+        storage.writeFile(taskList);
     }
 
     @Override
