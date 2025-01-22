@@ -1,11 +1,11 @@
 package bobAndSteve.command;
 
-import bobAndSteve.TaskList;
-import bobAndSteve.Ui;
 import bobAndSteve.exception.BobAndSteveException;
 import bobAndSteve.exception.InvalidCommandFormatException;
+import bobAndSteve.storage.Storage;
 import bobAndSteve.task.Todo;
-import storage.Storage;
+import bobAndSteve.taskList.TaskList;
+import bobAndSteve.ui.Ui;
 
 public class TodoCommand extends Command {
 
@@ -20,9 +20,10 @@ public class TodoCommand extends Command {
     }
 
     @Override
-    public void execute(TaskList taskList, Ui ui, Storage fileHandler) throws BobAndSteveException {
+    public void execute(TaskList taskList, Ui ui, Storage storage) throws BobAndSteveException {
         Todo todo = new Todo(description, "[ ]");
         taskList.addTask(todo);
+        storage.writeFile(taskList);
     }
 
     @Override

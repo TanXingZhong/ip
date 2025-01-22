@@ -1,19 +1,19 @@
 package bobAndSteve.command;
 
-import bobAndSteve.TaskList;
-import bobAndSteve.Ui;
 import bobAndSteve.exception.BobAndSteveException;
-import storage.Storage;
+import bobAndSteve.storage.Storage;
+import bobAndSteve.taskList.TaskList;
+import bobAndSteve.ui.Ui;
 
 public class ByeCommand extends Command {
 
     public void end() {
         String bye = "Bye. Hope to see you again soon!";
-        System.out.print(bye);
+        System.out.println(bye);
     }
 
     @Override
-    public void execute(TaskList taskList, Ui ui, Storage fileHandler) throws BobAndSteveException {
+    public void execute(TaskList taskList, Ui ui, Storage storage) throws BobAndSteveException {
         this.end();
     }
 

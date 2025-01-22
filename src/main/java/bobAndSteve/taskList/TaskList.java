@@ -1,4 +1,4 @@
-package bobAndSteve;
+package bobAndSteve.taskList;
 
 import bobAndSteve.exception.BobAndSteveException;
 import bobAndSteve.exception.ListIndexOutOfBoundException;
