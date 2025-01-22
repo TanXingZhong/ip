@@ -5,6 +5,7 @@ import bobAndSteve.exception.InvalidCommandFormatException;
 import java.time.DateTimeException;
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 public class Event extends Task {
 
@@ -32,7 +33,11 @@ public class Event extends Task {
 
     @Override
     public String toString() {
-        return "[E]" + super.toString() + " (from : " + formatDate(startDate, startTime) + " to: " + formatDate(endDate, endTime) + ")";
+        if (startDate.isEqual(endDate)) {
+            return "[E]" + super.toString() + " (at: " + formatDate(startDate, startTime) + " - " + endTime.format(DateTimeFormatter.ofPattern("hh:mm a")) + ")";
+        } else {
+            return "[E]" + super.toString() + " (from: " + formatDate(startDate, startTime) + " to: " + formatDate(endDate, endTime) + ")";
+        }
     }
 
 

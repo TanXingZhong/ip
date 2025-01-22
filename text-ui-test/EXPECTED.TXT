@@ -20,8 +20,13 @@ Now you have 2 tasks in the list.
 _______
 _______
 Got it. I've added this task:
-[E][ ] project meeting (from : Jan 20 2025 10:30 am to: Jan 20 2025 12:30 pm)
+[E][ ] project meeting2 (from: Jan 20 2025 10:30 am to: Jan 21 2025 12:30 pm)
 Now you have 3 tasks in the list.
+_______
+_______
+Got it. I've added this task:
+[E][ ] project meeting (at: Jan 20 2025 10:30 am - 12:30 pm)
+Now you have 4 tasks in the list.
 _______
 _______
 Nice! I've marked this task as done:
@@ -31,7 +36,8 @@ _______
 Here are the tasks in your list:
 1.[T][X] borrow book
 2.[D][ ] return book (by: Jan 20 2025 10:30 am)
-3.[E][ ] project meeting (from : Jan 20 2025 10:30 am to: Jan 20 2025 12:30 pm)
+3.[E][ ] project meeting2 (from: Jan 20 2025 10:30 am to: Jan 21 2025 12:30 pm)
+4.[E][ ] project meeting (at: Jan 20 2025 10:30 am - 12:30 pm)
 _______
 _______
 OK, I've marked this task as not done yet:
@@ -41,12 +47,13 @@ _______
 Here are the tasks in your list:
 1.[T][ ] borrow book
 2.[D][ ] return book (by: Jan 20 2025 10:30 am)
-3.[E][ ] project meeting (from : Jan 20 2025 10:30 am to: Jan 20 2025 12:30 pm)
+3.[E][ ] project meeting2 (from: Jan 20 2025 10:30 am to: Jan 21 2025 12:30 pm)
+4.[E][ ] project meeting (at: Jan 20 2025 10:30 am - 12:30 pm)
 _______
 _______
 Noted. I've removed this task:
 [T][ ] borrow book
-Now you have 2 tasks in the list.
+Now you have 3 tasks in the list.
 _______
 _______
 Nice! I've marked this task as done:
@@ -55,15 +62,16 @@ _______
 _______
 Noted. I've removed this task:
 [D][X] return book (by: Jan 20 2025 10:30 am)
-Now you have 1 tasks in the list.
+Now you have 2 tasks in the list.
 _______
 _______
 Noted. I've removed this task:
-[E][ ] project meeting (from : Jan 20 2025 10:30 am to: Jan 20 2025 12:30 pm)
-Now you have 0 tasks in the list.
+[E][ ] project meeting2 (from: Jan 20 2025 10:30 am to: Jan 21 2025 12:30 pm)
+Now you have 1 tasks in the list.
 _______
 _______
 Here are the tasks in your list:
+1.[E][ ] project meeting (at: Jan 20 2025 10:30 am - 12:30 pm)
 _______
 _______
 Bye. Hope to see you again soon!

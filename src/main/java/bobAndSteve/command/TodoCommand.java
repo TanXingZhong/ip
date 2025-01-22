@@ -12,11 +12,15 @@ public class TodoCommand extends Command {
     private final String description;
 
     public TodoCommand(String input) throws InvalidCommandFormatException {
-        String[] split = input.split(" ", 2);
-        if (split[1].isEmpty()) {
+        try {
+            String[] split = input.split(" ", 2);
+            if (split[1].isEmpty()) {
+                throw new InvalidCommandFormatException("You must specify the task in the format: <task>");
+            }
+            this.description = split[1].trim();
+        } catch (ArrayIndexOutOfBoundsException e) {
             throw new InvalidCommandFormatException("You must specify the task in the format: <task>");
         }
-        this.description = split[1].trim();
     }
 
     @Override
