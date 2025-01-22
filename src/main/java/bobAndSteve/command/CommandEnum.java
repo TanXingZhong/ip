@@ -14,5 +14,6 @@ public enum CommandEnum {
     EVENT,
     LIST,
     DELETE,
+    FIND,
     BYE;
 }
