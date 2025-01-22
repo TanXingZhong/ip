@@ -13,16 +13,35 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+/**
+ * Represents a list of tasks in the BobAndSteve application.
+ * The TaskList is used to manage, load, mark, unmark, delete, and retrieve tasks.
+ */
 public class TaskList {
     private final List<Task> taskList = new ArrayList<>();
 
+    /**
+     * Constructs a TaskList and loads tasks from the specified file.
+     *
+     * @param file The file containing saved task data.
+     * @throws BobAndSteveException If there is an error loading the tasks from the file.
+     */
     public TaskList(File file) throws BobAndSteveException {
         load(file);
     }
 
+    /**
+     * Constructs an empty TaskList.
+     */
     public TaskList() {
     }
 
+    /**
+     * Loads tasks from a file into the task list.
+     *
+     * @param file The file containing saved task data.
+     * @throws BobAndSteveException If there is an error loading the tasks from the file.
+     */
     private void load(File file) throws BobAndSteveException {
         try {
             Scanner scanner = new Scanner(file);
@@ -44,10 +63,13 @@ public class TaskList {
         }
     }
 
-    public int getSize() {
-        return taskList.size();
-    }
 
+    /**
+     * Marks a task as done at the specified position.
+     *
+     * @param pos The position of the task to mark.
+     * @throws ListIndexOutOfBoundException If the position is out of bounds.
+     */
     public void mark(int pos) throws ListIndexOutOfBoundException {
         if (pos <= 0) {
             throw new ListIndexOutOfBoundException("You must enter a number greater than 0.");
@@ -58,6 +80,12 @@ public class TaskList {
         System.out.println(taskList.get(pos - 1).toString());
     }
 
+    /**
+     * Unmarks a task as not done at the specified position.
+     *
+     * @param pos The position of the task to unmark.
+     * @throws ListIndexOutOfBoundException If the position is out of bounds.
+     */
     public void unmark(int pos) throws ListIndexOutOfBoundException {
         if (pos <= 0) {
             throw new ListIndexOutOfBoundException("You must enter a number greater than 0.");
@@ -68,10 +96,11 @@ public class TaskList {
         System.out.println(taskList.get(pos - 1).toString());
     }
 
-    public Task getTask(int pos) {
-        return taskList.get(pos - 1);
-    }
-
+    /**
+     * Adds a task to the task list.
+     *
+     * @param t The task to add.
+     */
     public void addTask(Task t) {
         taskList.add(t);
         System.out.println("Got it. I've added this task:");
@@ -79,6 +108,12 @@ public class TaskList {
         System.out.println("Now you have " + taskList.size() + " tasks in the list.");
     }
 
+    /**
+     * Deletes a task at the specified position.
+     *
+     * @param pos The position of the task to delete.
+     * @throws ListIndexOutOfBoundException If the position is out of bounds.
+     */
     public void deleteTask(int pos) throws ListIndexOutOfBoundException {
         if (pos <= 0) {
             throw new ListIndexOutOfBoundException("You must enter a number greater than 0.");
@@ -91,6 +126,9 @@ public class TaskList {
         System.out.println("Now you have " + this.getSize() + " tasks in the list.");
     }
 
+    /**
+     * Displays the list of tasks.
+     */
     public void getList() {
         System.out.println("Here are the tasks in your list:");
         for (int i = 0; i < taskList.size(); i++) {
@@ -99,6 +137,30 @@ public class TaskList {
         }
     }
 
+    /**
+     * Returns the size of the task list.
+     *
+     * @return The number of tasks in the list.
+     */
+    public int getSize() {
+        return taskList.size();
+    }
+
+    /**
+     * Retrieves a task at the specified position.
+     *
+     * @param pos The position of the task to retrieve.
+     * @return The task at the specified position.
+     */
+    public Task getTask(int pos) {
+        return taskList.get(pos - 1);
+    }
+
+    /**
+     * Returns a string representation of the task list in a format suitable for saving to a file.
+     *
+     * @return A string representing the task list in save format.
+     */
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
