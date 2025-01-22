@@ -29,6 +29,11 @@ Got it. I've added this task:
 Now you have 4 tasks in the list.
 _______
 _______
+Here are the matching tasks in your list:
+3.[E][ ] project meeting2 (from: Jan 20 2025 10:30 am to: Jan 21 2025 12:30 pm)
+4.[E][ ] project meeting (at: Jan 20 2025 10:30 am - 12:30 pm)
+_______
+_______
 Nice! I've marked this task as done:
 [T][X] borrow book
 _______

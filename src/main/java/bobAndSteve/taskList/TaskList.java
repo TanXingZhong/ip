@@ -15,7 +15,7 @@ import java.util.Scanner;
 
 /**
  * Represents a list of tasks in the BobAndSteve application.
- * The TaskList is used to manage, load, mark, unmark, delete, and retrieve tasks.
+ * The TaskList is used to manage, load, mark, unmark, delete, find and retrieve tasks.
  */
 public class TaskList {
     private final List<Task> taskList = new ArrayList<>();
@@ -134,6 +134,20 @@ public class TaskList {
         for (int i = 0; i < taskList.size(); i++) {
             int index = i + 1;
             System.out.println(index + "." + taskList.get(i));
+        }
+    }
+
+    /**
+     * Search and display the list of task based on matching keywords.
+     */
+    public void find(String keyword) {
+        System.out.println("Here are the matching tasks in your list:");
+        for (int i = 0; i < taskList.size(); i++) {
+            Task task = taskList.get(i);
+            if(task.toString().contains(keyword)) {
+                int index = i + 1;
+                System.out.println(index + "." + taskList.get(i));
+            }
         }
     }
 

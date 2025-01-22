@@ -32,6 +32,7 @@ public class Parser {
 
         // Return the appropriate Command based on the parsed command
         return switch (command) {
+            case FIND -> new FindCommand(input);
             case BYE -> new ByeCommand();
             case HELP -> new HelpCommand();
             case LIST -> new ListCommand();
