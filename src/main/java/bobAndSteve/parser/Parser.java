@@ -14,35 +14,16 @@ public class Parser {
         } catch (IllegalArgumentException err) {
             throw new InvalidCommandException("Invalid command, Enter help to view all commands");
         }
-        switch (command) {
-            case BYE -> {
-                return new ByeCommand();
-            }
-            case HELP -> {
-                return new HelpCommand();
-            }
-            case LIST -> {
-                return new ListCommand();
-            }
-            case TODO -> {
-                return new TodoCommand(input);
-            }
-            case DEADLINE -> {
-                return new DeadlineCommand(input);
-            }
-            case EVENT -> {
-                return new EventCommand(input);
-            }
-            case UNMARK -> {
-                return new UnmarkCommand(input);
-            }
-            case MARK -> {
-                return new MarkCommand(input);
-            }
-            case DELETE -> {
-                return new DeleteCommand(input);
-            }
-        }
-        return new HelpCommand();
+        return switch (command) {
+            case BYE -> new ByeCommand();
+            case HELP -> new HelpCommand();
+            case LIST -> new ListCommand();
+            case TODO -> new TodoCommand(input);
+            case DEADLINE -> new DeadlineCommand(input);
+            case EVENT -> new EventCommand(input);
+            case UNMARK -> new UnmarkCommand(input);
+            case MARK -> new MarkCommand(input);
+            case DELETE -> new DeleteCommand(input);
+        };
     }
 }
