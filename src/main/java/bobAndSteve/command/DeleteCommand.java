@@ -1,17 +1,16 @@
 package bobAndSteve.command;
 
 import bobAndSteve.TaskList;
+import bobAndSteve.Ui;
 import bobAndSteve.exception.BobAndSteveException;
 import bobAndSteve.exception.InvalidCommandFormatException;
-import fileHandler.FileHandler;
-
-import java.io.IOException;
+import storage.Storage;
 
 public class DeleteCommand extends Command {
 
     private int pos = 0;
 
-    public DeleteCommand(String input) throws InvalidCommandFormatException{
+    public DeleteCommand(String input) throws InvalidCommandFormatException {
         String[] split = input.split(" ", 2);
         if (split.length < 2) {
             throw new InvalidCommandFormatException("Deletes a task. Usage: delete <task number>");
@@ -24,9 +23,14 @@ public class DeleteCommand extends Command {
     }
 
     @Override
-    public void run(TaskList taskList, FileHandler fileHandler) throws BobAndSteveException, IOException {
+    public void execute(TaskList taskList, Ui ui, Storage fileHandler) throws BobAndSteveException {
         taskList.deleteTask(pos);
         fileHandler.writeFile(taskList);
+    }
+
+    @Override
+    public boolean isExit() {
+        return false;
     }
 }
 

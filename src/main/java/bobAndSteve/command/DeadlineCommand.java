@@ -1,19 +1,18 @@
 package bobAndSteve.command;
 
 import bobAndSteve.TaskList;
+import bobAndSteve.Ui;
 import bobAndSteve.exception.BobAndSteveException;
 import bobAndSteve.exception.InvalidCommandFormatException;
 import bobAndSteve.task.Deadline;
-import fileHandler.FileHandler;
-
-import java.io.IOException;
+import storage.Storage;
 
 public class DeadlineCommand extends Command {
 
     private final String description;
     private final String by;
 
-    public DeadlineCommand(String input) throws InvalidCommandFormatException{
+    public DeadlineCommand(String input) throws InvalidCommandFormatException {
         String[] split = input.split(" ", 2);
         if (split[1].isEmpty()) {
             throw new InvalidCommandFormatException("You must specify the task and deadline in the format: <task> /by <deadline>");
@@ -27,9 +26,14 @@ public class DeadlineCommand extends Command {
     }
 
     @Override
-    public void run(TaskList taskList, FileHandler fileHandler) throws BobAndSteveException, IOException {
+    public void execute(TaskList taskList, Ui ui, Storage fileHandler) throws BobAndSteveException {
         Deadline deadline = new Deadline(description, "[ ]", by);
         taskList.addTask(deadline);
         fileHandler.writeFile(taskList);
+    }
+
+    @Override
+    public boolean isExit() {
+        return false;
     }
 }

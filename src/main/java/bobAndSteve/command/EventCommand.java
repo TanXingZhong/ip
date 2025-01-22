@@ -1,12 +1,11 @@
 package bobAndSteve.command;
 
 import bobAndSteve.TaskList;
+import bobAndSteve.Ui;
 import bobAndSteve.exception.BobAndSteveException;
 import bobAndSteve.exception.InvalidCommandFormatException;
 import bobAndSteve.task.Event;
-import fileHandler.FileHandler;
-
-import java.io.IOException;
+import storage.Storage;
 
 public class EventCommand extends Command {
 
@@ -34,9 +33,14 @@ public class EventCommand extends Command {
     }
 
     @Override
-    public void run(TaskList taskList, FileHandler fileHandler) throws BobAndSteveException, IOException {
+    public void execute(TaskList taskList, Ui ui, Storage fileHandler) throws BobAndSteveException {
         Event event = new Event(description, "[ ]", start, end);
         taskList.addTask(event);
         fileHandler.writeFile(taskList);
+    }
+
+    @Override
+    public boolean isExit() {
+        return false;
     }
 }

@@ -1,10 +1,9 @@
 package bobAndSteve.command;
 
 import bobAndSteve.TaskList;
+import bobAndSteve.Ui;
 import bobAndSteve.exception.BobAndSteveException;
-import fileHandler.FileHandler;
-
-import java.io.IOException;
+import storage.Storage;
 
 public class HelpCommand extends Command {
     public void help() {
@@ -23,7 +22,12 @@ public class HelpCommand extends Command {
     }
 
     @Override
-    public void run(TaskList taskList, FileHandler fileHandler) throws BobAndSteveException, IOException {
+    public void execute(TaskList taskList, Ui ui, Storage fileHandler) throws BobAndSteveException {
         this.help();
+    }
+
+    @Override
+    public boolean isExit() {
+        return false;
     }
 }
