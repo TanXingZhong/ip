@@ -5,6 +5,10 @@ import bobAndSteve.storage.Storage;
 import bobAndSteve.taskList.TaskList;
 import bobAndSteve.ui.Ui;
 
+/**
+ * Command to display a list of all available commands in the application.
+ * This command outputs a description of each available command along with its usage.
+ */
 public class HelpCommand extends Command {
     public void help() {
         System.out.println("Available Commands:");

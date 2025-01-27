@@ -7,6 +7,10 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
+/**
+ * Represents an event task in the BobAndSteve application.
+ * An event task has a description, a status (completed or not), a start date/time, and an end date/time.
+ */
 public class Event extends Task {
 
     private final LocalDate startDate;
@@ -14,6 +18,16 @@ public class Event extends Task {
     private final LocalTime startTime;
     private final LocalTime endTime;
 
+    /**
+     * Constructs a new Event task with the specified description, status, start, and end times.
+     * The start and end times are represented by date and time strings in the format "YYYY-MM-DD HH:MM".
+     *
+     * @param description The description of the event task.
+     * @param isDone The status of the task (completed or not).
+     * @param start The start time of the event in "YYYY-MM-DD HH:MM" format.
+     * @param end The end time of the event in "YYYY-MM-DD HH:MM" format.
+     * @throws InvalidCommandFormatException If the date and time format is invalid or if the start time is after the end time.
+     */
     public Event(String description, String isDone, String start, String end) throws InvalidCommandFormatException {
         super(description, isDone);
         try {

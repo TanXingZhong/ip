@@ -5,6 +5,10 @@ import bobAndSteve.storage.Storage;
 import bobAndSteve.taskList.TaskList;
 import bobAndSteve.ui.Ui;
 
+/**
+ * Command to display the list of all tasks in the task list.
+ * This command retrieves and displays all the tasks currently stored.
+ */
 public class ListCommand extends Command {
 
     @Override

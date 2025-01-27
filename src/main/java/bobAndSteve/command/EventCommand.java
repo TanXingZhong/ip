@@ -7,12 +7,25 @@ import bobAndSteve.task.Event;
 import bobAndSteve.taskList.TaskList;
 import bobAndSteve.ui.Ui;
 
+/**
+ * Command to create a new event task with a description, start time, and end time.
+ * This command parses the user input to extract the task description, start time, and
+ * end time, then creates an Event task and adds it to the task list.
+ */
 public class EventCommand extends Command {
 
-    private final String description;
-    private final String start;
-    private final String end;
+    private final String description;  // The description of the event.
+    private final String start;        // The start time of the event.
+    private final String end;          // The end time of the event.
 
+    /**
+     * Constructs a new EventCommand by parsing the user input.
+     * The input is expected to follow the format: "<task> /from <start> /to <end>".
+     * If the format is invalid, an exception is thrown.
+     *
+     * @param input The user input string to be parsed.
+     * @throws InvalidCommandFormatException If the input format is incorrect.
+     */
     public EventCommand(String input) throws InvalidCommandFormatException {
         try {
             String[] split = input.split(" ", 2);
