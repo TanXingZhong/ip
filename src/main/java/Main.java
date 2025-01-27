@@ -1,4 +1,4 @@
-import bobAndSteve.BobAndSteve;
+import bobandsteve.BobAndSteve;
 
 /**
  * The Main class serves as the entry point for the application.
