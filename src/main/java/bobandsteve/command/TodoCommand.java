@@ -14,6 +14,7 @@ import bobandsteve.ui.Ui;
 public class TodoCommand extends Command {
 
     private final String description;
+    private String output;
 
     /**
      * Constructs a TodoCommand object based on the input provided by the user.
@@ -37,12 +38,18 @@ public class TodoCommand extends Command {
     @Override
     public void execute(TaskList taskList, Ui ui, Storage storage) throws BobAndSteveException {
         Todo todo = new Todo(description, "[ ]");
-        taskList.addTask(todo);
+        output = taskList.addTask(todo);
         storage.writeFile(taskList);
+        ui.printOutput(output);
     }
 
     @Override
     public boolean isExit() {
         return false;
+    }
+
+    @Override
+    public String getString() {
+        return output;
     }
 }

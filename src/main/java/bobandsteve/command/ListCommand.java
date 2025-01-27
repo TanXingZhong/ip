@@ -11,14 +11,22 @@ import bobandsteve.ui.Ui;
  */
 public class ListCommand extends Command {
 
+    private String output;
+
     @Override
     public void execute(TaskList taskList, Ui ui, Storage storage) throws BobAndSteveException {
-        taskList.getList();
+        output = taskList.getList();
+        ui.printOutput(output);
     }
 
     @Override
     public boolean isExit() {
         return false;
+    }
+
+    @Override
+    public String getString() {
+        return output;
     }
 }
 

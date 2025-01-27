@@ -32,4 +32,6 @@ public abstract class Command {
      * @return true if the command ends the program, false otherwise.
      */
     public abstract boolean isExit();
+
+    public abstract String getString();
 }

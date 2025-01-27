@@ -1,12 +1,12 @@
 package bobandsteve.task;
 
-import bobandsteve.exception.InvalidCommandFormatException;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.fail;
+import bobandsteve.exception.InvalidCommandFormatException;
 
 public class TaskTest {
     @Test
@@ -45,7 +45,7 @@ public class TaskTest {
     }
 
     @Test
-    public void createEvent_startDate_After_endDate_success() throws InvalidCommandFormatException {
+    public void createEvent_startDateAfterendDate_success() throws InvalidCommandFormatException {
         Assertions.assertEquals("[E][ ] test (at: Jan 22 2025 08:30 am - 08:30 am)",
                 new Event("test", "[ ]", "2025-01-22 08:30", "2025-01-22 08:30").toString());
     }
@@ -75,7 +75,8 @@ public class TaskTest {
                     new Event("test", "[ ]", "2025-01-22 09:30", "2025-01-22 08:30").toString());
             fail();
         } catch (InvalidCommandFormatException error) {
-            assertEquals("Start date (2025-01-22 09:30) has to be before end date (2025-01-22 08:30)", error.getMessage());
+            assertEquals("Start date (2025-01-22 09:30) has to be before end date "
+                    + "(2025-01-22 08:30)", error.getMessage());
         }
     }
 }

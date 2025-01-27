@@ -17,6 +17,7 @@ public class EventCommand extends Command {
     private final String description;
     private final String start;
     private final String end;
+    private String output;
 
     /**
      * Constructs a new EventCommand by parsing the user input.
@@ -50,12 +51,18 @@ public class EventCommand extends Command {
     @Override
     public void execute(TaskList taskList, Ui ui, Storage storage) throws BobAndSteveException {
         Event event = new Event(description, "[ ]", start, end);
-        taskList.addTask(event);
+        this.output = taskList.addTask(event);
         storage.writeFile(taskList);
+        ui.printOutput(output);
     }
 
     @Override
     public boolean isExit() {
         return false;
+    }
+
+    @Override
+    public String getString() {
+        return output;
     }
 }

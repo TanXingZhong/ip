@@ -67,87 +67,102 @@ public class TaskList {
      * Marks a task as done at the specified position.
      *
      * @param pos The position of the task to mark.
+     * @return A formatted string for marking the task.
      * @throws ListIndexOutOfBoundException If the position is out of bounds.
      */
-    public void mark(int pos) throws ListIndexOutOfBoundException {
+    public String mark(int pos) throws ListIndexOutOfBoundException {
         if (pos <= 0) {
             throw new ListIndexOutOfBoundException("You must enter a number greater than 0.");
         } else if (pos > this.getSize()) {
             throw new ListIndexOutOfBoundException("You only have " + this.getSize() + " tasks in the list.");
         }
         taskList.get(pos - 1).mark();
-        System.out.println(taskList.get(pos - 1).toString());
+        return "Nice! I've marked this task as done:\n" + taskList.get(pos - 1).toString();
     }
 
     /**
      * Unmarks a task as not done at the specified position.
      *
      * @param pos The position of the task to unmark.
+     * @return A formatted string for unmarking the task.
      * @throws ListIndexOutOfBoundException If the position is out of bounds.
      */
-    public void unmark(int pos) throws ListIndexOutOfBoundException {
+    public String unmark(int pos) throws ListIndexOutOfBoundException {
         if (pos <= 0) {
             throw new ListIndexOutOfBoundException("You must enter a number greater than 0.");
         } else if (pos > this.getSize()) {
             throw new ListIndexOutOfBoundException("You only have " + this.getSize() + " tasks in the list.");
         }
         taskList.get(pos - 1).unmark();
-        System.out.println(taskList.get(pos - 1).toString());
+        return "OK, I've marked this task as not done yet:\n" + taskList.get(pos - 1).toString();
     }
 
     /**
      * Adds a task to the task list.
      *
      * @param t The task to add.
+     * @return A formatted string for adding task.
      */
-    public void addTask(Task t) {
+    public String addTask(Task t) {
         taskList.add(t);
-        System.out.println("Got it. I've added this task:");
-        System.out.println(t.toString());
-        System.out.println("Now you have " + taskList.size() + " tasks in the list.");
+        return "Got it. I've added this task:\n"
+                + t.toString() + "\n" + "Now you have " + getSize() + " tasks in the list.";
     }
 
     /**
      * Deletes a task at the specified position.
      *
      * @param pos The position of the task to delete.
+     * @return A formatted string for deleting task.
      * @throws ListIndexOutOfBoundException If the position is out of bounds.
      */
-    public void deleteTask(int pos) throws ListIndexOutOfBoundException {
+    public String deleteTask(int pos) throws ListIndexOutOfBoundException {
         if (pos <= 0) {
             throw new ListIndexOutOfBoundException("You must enter a number greater than 0.");
         } else if (pos > this.getSize()) {
             throw new ListIndexOutOfBoundException("You only have " + this.getSize() + " tasks in the list.");
         }
         Task t = taskList.remove(pos - 1);
-        System.out.println("Noted. I've removed this task:");
-        System.out.println(t.toString());
-        System.out.println("Now you have " + this.getSize() + " tasks in the list.");
+        return "Noted. I've removed this task:\n"
+                + t.toString() + "\n" + "Now you have " + this.getSize() + " tasks in the list.";
     }
 
     /**
      * Displays the list of tasks.
+     * @return A formatted string of a list of tasks.
      */
-    public void getList() {
-        System.out.println("Here are the tasks in your list:");
+    public String getList() {
+        StringBuilder output = new StringBuilder("Here are the tasks in your list:");
+        if (getSize() > 0) {
+            output.append("\n");
+        }
         for (int i = 0; i < taskList.size(); i++) {
             int index = i + 1;
-            System.out.println(index + "." + taskList.get(i));
+            output.append(index).append(".").append(taskList.get(i));
+            if (i < taskList.size() - 1) {
+                output.append("\n");
+            }
         }
+        return output.toString();
     }
 
     /**
      * Search and display the list of task based on matching keywords.
+     * @return A formatted string of a list of tasks with matching keyword.
      */
-    public void find(String keyword) {
-        System.out.println("Here are the matching tasks in your list:");
+    public String find(String keyword) {
+        StringBuilder output = new StringBuilder("Here are the matching tasks in your list:\n");
         for (int i = 0; i < taskList.size(); i++) {
             Task task = taskList.get(i);
             if (task.toString().contains(keyword)) {
                 int index = i + 1;
-                System.out.println(index + "." + taskList.get(i));
+                output.append(index).append(".").append(taskList.get(i));
+                if (i < taskList.size() - 1) {
+                    output.append("\n");
+                }
             }
         }
+        return output.toString();
     }
 
     /**
@@ -177,8 +192,13 @@ public class TaskList {
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        for (Task t : taskList) {
-            sb.append(t.toSaveFormat()).append("\n");
+        int size = taskList.size();
+        for (int i = 0; i < size; i++) {
+            Task t = taskList.get(i);
+            sb.append(t.toSaveFormat());
+            if (i < size - 1) {
+                sb.append("\n");
+            }
         }
         return sb.toString();
     }

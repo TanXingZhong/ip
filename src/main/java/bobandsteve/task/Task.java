@@ -10,7 +10,7 @@ import java.time.format.DateTimeFormatter;
  */
 public abstract class Task {
 
-    private String description;
+    private final String description;
     private String isDone;
 
     /**
@@ -28,7 +28,6 @@ public abstract class Task {
      * Marks the task as completed by setting its status to "[X]".
      */
     public void mark() {
-        System.out.println("Nice! I've marked this task as done:");
         this.isDone = "[X]";
     }
 
@@ -36,7 +35,6 @@ public abstract class Task {
      * Marks the task as not completed by setting its status to "[ ]".
      */
     public void unmark() {
-        System.out.println("OK, I've marked this task as not done yet:");
         this.isDone = "[ ]";
     }
 

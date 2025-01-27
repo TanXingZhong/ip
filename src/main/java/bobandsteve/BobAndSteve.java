@@ -17,6 +17,7 @@ public class BobAndSteve {
     private TaskList taskList;
     private final Storage storage;
     private final Ui ui;
+    private String commandType = "";
 
     /**
      * Constructs a new BobAndSteve application with a specified file path for storage.
@@ -58,5 +59,19 @@ public class BobAndSteve {
                 ui.showLine();
             }
         }
+    }
+
+    public String getResponse(String input) {
+        try {
+            Command c = Parser.parse(input);
+            c.execute(taskList, ui, storage);
+            commandType = c.getClass().getSimpleName();
+            return c.getString();
+        } catch (BobAndSteveException e) {
+            return "Error: " + e.getMessage();
+        }
+    }
+    public String getCommandType() {
+        return commandType;
     }
 }

@@ -60,5 +60,11 @@ public class Ui {
         System.out.println("Error: Failed to load resources. Please try again.");
     }
 
+    public String showText(String txt) {
+        return txt;
+    }
 
+    public void printOutput(String txt) {
+        System.out.println(txt);
+    }
 }

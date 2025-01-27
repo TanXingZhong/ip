@@ -14,18 +14,22 @@ public class ByeCommand extends Command {
     /**
      * Prints a goodbye message when the user exits the program.
      */
-    public void end() {
-        String bye = "Bye. Hope to see you again soon!";
-        System.out.println(bye);
+    public String end() {
+        return "Bye. Hope to see you again soon!";
     }
 
     @Override
     public void execute(TaskList taskList, Ui ui, Storage storage) throws BobAndSteveException {
-        this.end();
+        ui.printOutput(end());
     }
 
     @Override
     public boolean isExit() {
         return true;
+    }
+
+    @Override
+    public String getString() {
+        return this.end();
     }
 }

@@ -13,6 +13,7 @@ import bobandsteve.ui.Ui;
 public class MarkCommand extends Command {
 
     private int pos = 0;
+    private String output;
 
     /**
      * Constructs a MarkCommand object based on the input provided by the user.
@@ -35,13 +36,19 @@ public class MarkCommand extends Command {
 
     @Override
     public void execute(TaskList taskList, Ui ui, Storage storage) throws BobAndSteveException {
-        taskList.mark(pos);
+        output = taskList.mark(pos);
         storage.writeFile(taskList);
+        ui.printOutput(output);
     }
 
     @Override
     public boolean isExit() {
         return false;
+    }
+
+    @Override
+    public String getString() {
+        return output;
     }
 }
 

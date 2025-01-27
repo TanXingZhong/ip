@@ -15,28 +15,32 @@ public class HelpCommand extends Command {
      * Displays the list of available commands in the application.
      * This includes descriptions and usage for each command.
      */
-    public void help() {
-        System.out.println("Available Commands:");
-        System.out.println("-------------------");
-        System.out.println("HELP      - Displays the list of all commands.");
-        System.out.println("MARK      - Marks a task as completed. Usage: mark <task number>");
-        System.out.println("UNMARK    - Unmarks a completed task. Usage: unmark <task number>");
-        System.out.println("TODO      - Adds a todo. Usage: todo <task>");
-        System.out.println("DEADLINE  - Adds a deadline. Usage: deadline <task> /by <date>");
-        System.out.println("EVENT     - Adds an event. Usage: event <task> /from <start> /to <end>");
-        System.out.println("LIST      - Displays all tasks.");
-        System.out.println("DELETE    - Deletes a task. Usage: delete <task number>");
-        System.out.println("BYE       - Exits the program.");
-        System.out.println("-------------------");
+    public String help() {
+        return "Available Commands:\n" + "-------------------\n"
+                + "HELP      - Displays the list of all commands.\n"
+                + "MARK      - Marks a task as completed. Usage: mark <task number>\n"
+                + "UNMARK    - Unmarks a completed task. Usage: unmark <task number>\n"
+                + "TODO      - Adds a todo. Usage: todo <task>\n"
+                + "DEADLINE  - Adds a deadline. Usage: deadline <task> /by <date>\n"
+                + "EVENT     - Adds an event. Usage: event <task> /from <start> /to <end>\n"
+                + "LIST      - Displays all tasks.\n"
+                + "DELETE    - Deletes a task. Usage: delete <task number>\n"
+                + "BYE       - Exits the program.\n"
+                + "-------------------\n";
     }
 
     @Override
     public void execute(TaskList taskList, Ui ui, Storage storage) throws BobAndSteveException {
-        this.help();
+        ui.printOutput(help());
     }
 
     @Override
     public boolean isExit() {
         return false;
+    }
+
+    @Override
+    public String getString() {
+        return help();
     }
 }

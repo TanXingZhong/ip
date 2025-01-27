@@ -16,6 +16,7 @@ public class DeadlineCommand extends Command {
 
     private final String description;
     private final String by;
+    private String output = "";
 
     /**
      * Constructs a new DeadlineCommand by parsing the user input.
@@ -46,12 +47,18 @@ public class DeadlineCommand extends Command {
     @Override
     public void execute(TaskList taskList, Ui ui, Storage storage) throws BobAndSteveException {
         Deadline deadline = new Deadline(description, "[ ]", by);
-        taskList.addTask(deadline);
+        this.output = taskList.addTask(deadline);
         storage.writeFile(taskList);
+        ui.printOutput(output);
     }
 
     @Override
     public boolean isExit() {
         return false;
+    }
+
+    @Override
+    public String getString() {
+        return output;
     }
 }
