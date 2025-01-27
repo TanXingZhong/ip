@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 public class ParserTest {
     @Test
-    public void Parser_wrongInput_exceptionThrown() {
+    public void createParser_wrongInput_exceptionThrown() {
         try {
             assertEquals(new ByeCommand(), Parser.parse("test"));
             fail();

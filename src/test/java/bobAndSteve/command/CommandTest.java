@@ -9,7 +9,7 @@ import bobAndSteve.exception.InvalidCommandFormatException;
 
 public class CommandTest {
     @Test
-    public void TodoCommand_wrongInput_exceptionThrown() {
+    public void createTodoCommand_wrongInput_exceptionThrown() {
         try {
             assertEquals(2, new TodoCommand("todo "));
             fail();
@@ -19,7 +19,7 @@ public class CommandTest {
     }
 
     @Test
-    public void DeadlineCommand_wrongInput_exceptionThrown() {
+    public void createDeadlineCommand_wrongInput_exceptionThrown() {
         try {
             assertEquals(2, new DeadlineCommand("deadline test"));
             fail();
@@ -29,7 +29,7 @@ public class CommandTest {
     }
 
     @Test
-    public void EventCommand_wrongInput_exceptionThrown() {
+    public void createEventCommand_wrongInput_exceptionThrown() {
         try {
             assertEquals(2, new EventCommand("event test /from test"));
             fail();
@@ -39,7 +39,7 @@ public class CommandTest {
     }
 
     @Test
-    public void DeleteCommand_wrongInput_exceptionThrown() {
+    public void createDeleteCommand_wrongInput_exceptionThrown() {
         try {
             assertEquals(0, new DeleteCommand("delete test"));
             fail();
@@ -49,7 +49,7 @@ public class CommandTest {
     }
 
     @Test
-    public void MarkCommand_wrongInput_exceptionThrown() {
+    public void createMarkCommand_wrongInput_exceptionThrown() {
         try {
             assertEquals(0, new MarkCommand("mark test"));
             fail();
@@ -59,7 +59,7 @@ public class CommandTest {
     }
 
     @Test
-    public void MarkCommand_wrongInput2_exceptionThrown() {
+    public void createMarkCommand_wrongInput2_exceptionThrown() {
         try {
             assertEquals(0, new MarkCommand("mark"));
             fail();
@@ -68,7 +68,7 @@ public class CommandTest {
         }
     }
     @Test
-    public void UnmarkCommand_wrongInput_exceptionThrown() {
+    public void createUnmarkCommand_wrongInput_exceptionThrown() {
         try {
             assertEquals(0, new UnmarkCommand("mark test"));
             fail();
@@ -78,7 +78,7 @@ public class CommandTest {
     }
 
     @Test
-    public void UnmarkCommand_wrongInput2_exceptionThrown() {
+    public void createUnmarkCommand_wrongInput2_exceptionThrown() {
         try {
             assertEquals(0, new UnmarkCommand("mark"));
             fail();

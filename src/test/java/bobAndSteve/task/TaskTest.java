@@ -16,7 +16,7 @@ public class TaskTest {
     }
 
     @Test
-    public void TodoToSaveFormat_success() {
+    public void createTodoToSaveFormat_success() {
         Assertions.assertEquals("T | 0 | test",
                 new Todo("test", "[ ]").toSaveFormat());
     }
@@ -28,7 +28,7 @@ public class TaskTest {
     }
 
     @Test
-    public void DeadlineToSaveFormat_success() throws InvalidCommandFormatException {
+    public void createDeadline_testToSaveFormat_success() throws InvalidCommandFormatException {
         Assertions.assertEquals("D | 0 | test | 2025-01-22 08:30",
                 new Deadline("test", "[ ]", "2025-01-22 08:30").toSaveFormat());
     }
@@ -51,19 +51,19 @@ public class TaskTest {
     }
 
     @Test
-    public void EventToSaveFormat_success() throws InvalidCommandFormatException {
+    public void createEvent_testToSaveFormat_success() throws InvalidCommandFormatException {
         Assertions.assertEquals("E | 0 | test | 2025-01-22 08:30 | 2025-01-22 08:30",
                 new Event("test", "[ ]", "2025-01-22 08:30", "2025-01-22 08:30").toSaveFormat());
     }
 
     @Test
-    public void createEvent_SameDate_success() throws InvalidCommandFormatException {
+    public void createEvent_testSameDate_success() throws InvalidCommandFormatException {
         Assertions.assertEquals("[E][ ] test (at: Jan 22 2025 08:30 am - 08:30 am)",
                 new Event("test", "[ ]", "2025-01-22 08:30", "2025-01-22 08:30").toString());
     }
 
     @Test
-    public void createEvent_DiffDate_success() throws InvalidCommandFormatException {
+    public void createEvent_testDiffDate_success() throws InvalidCommandFormatException {
         Assertions.assertEquals("[E][ ] test (from: Jan 22 2025 08:30 am to: Jan 23 2025 08:30 am)",
                 new Event("test", "[ ]", "2025-01-22 08:30", "2025-01-23 08:30").toString());
     }
