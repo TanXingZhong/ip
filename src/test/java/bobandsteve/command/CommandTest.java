@@ -3,8 +3,9 @@ package bobandsteve.command;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
-import bobandsteve.exception.InvalidCommandFormatException;
 import org.junit.jupiter.api.Test;
+
+import bobandsteve.exception.InvalidCommandFormatException;
 
 public class CommandTest {
     @Test

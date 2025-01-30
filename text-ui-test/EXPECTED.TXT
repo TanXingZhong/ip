@@ -15,12 +15,12 @@ Here are the tasks in your list:
 _______
 _______
 Got it. I've added this task:
-[D][ ] return book (by: Jan 20 2025 10:30 am)
+[D][ ] return book (by: Jan 20 2025 10:30 AM)
 Now you have 2 tasks in the list.
 _______
 _______
 Got it. I've added this task:
-[E][ ] project meeting (from : Jan 20 2025 10:30 am to: Jan 20 2025 12:30 pm)
+[E][ ] project meeting (at: Jan 20 2025 10:30 AM - 12:30 PM)
 Now you have 3 tasks in the list.
 _______
 _______
@@ -30,8 +30,8 @@ _______
 _______
 Here are the tasks in your list:
 1.[T][X] borrow book
-2.[D][ ] return book (by: Jan 20 2025 10:30 am)
-3.[E][ ] project meeting (from : Jan 20 2025 10:30 am to: Jan 20 2025 12:30 pm)
+2.[D][ ] return book (by: Jan 20 2025 10:30 AM)
+3.[E][ ] project meeting (at: Jan 20 2025 10:30 AM - 12:30 PM)
 _______
 _______
 OK, I've marked this task as not done yet:
@@ -40,8 +40,8 @@ _______
 _______
 Here are the tasks in your list:
 1.[T][ ] borrow book
-2.[D][ ] return book (by: Jan 20 2025 10:30 am)
-3.[E][ ] project meeting (from : Jan 20 2025 10:30 am to: Jan 20 2025 12:30 pm)
+2.[D][ ] return book (by: Jan 20 2025 10:30 AM)
+3.[E][ ] project meeting (at: Jan 20 2025 10:30 AM - 12:30 PM)
 _______
 _______
 Noted. I've removed this task:
@@ -50,16 +50,16 @@ Now you have 2 tasks in the list.
 _______
 _______
 Nice! I've marked this task as done:
-[D][X] return book (by: Jan 20 2025 10:30 am)
+[D][X] return book (by: Jan 20 2025 10:30 AM)
 _______
 _______
 Noted. I've removed this task:
-[D][X] return book (by: Jan 20 2025 10:30 am)
+[D][X] return book (by: Jan 20 2025 10:30 AM)
 Now you have 1 tasks in the list.
 _______
 _______
 Noted. I've removed this task:
-[E][ ] project meeting (from : Jan 20 2025 10:30 am to: Jan 20 2025 12:30 pm)
+[E][ ] project meeting (at: Jan 20 2025 10:30 AM - 12:30 PM)
 Now you have 0 tasks in the list.
 _______
 _______

@@ -5,20 +5,31 @@ import bobandsteve.storage.Storage;
 import bobandsteve.tasklist.TaskList;
 import bobandsteve.ui.Ui;
 
+/**
+ * Represents a command that signals the end of the program.
+ * This command is responsible for displaying a farewell message
+ * and terminating the program when executed.
+ */
 public class ByeCommand extends Command {
-
-    public void end() {
-        String bye = "Bye. Hope to see you again soon!";
-        System.out.println(bye);
+    /**
+     * Prints a goodbye message when the user exits the program.
+     */
+    public String end() {
+        return "Bye. Hope to see you again soon!";
     }
 
     @Override
     public void execute(TaskList taskList, Ui ui, Storage storage) throws BobAndSteveException {
-        this.end();
+        ui.printOutput(end());
     }
 
     @Override
     public boolean isExit() {
         return true;
+    }
+
+    @Override
+    public String getString() {
+        return this.end();
     }
 }
