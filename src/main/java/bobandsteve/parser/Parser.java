@@ -6,6 +6,7 @@ import bobandsteve.command.CommandEnum;
 import bobandsteve.command.DeadlineCommand;
 import bobandsteve.command.DeleteCommand;
 import bobandsteve.command.EventCommand;
+import bobandsteve.command.FindCommand;
 import bobandsteve.command.HelpCommand;
 import bobandsteve.command.ListCommand;
 import bobandsteve.command.MarkCommand;
@@ -40,7 +41,9 @@ public class Parser {
         }
 
         // Return the appropriate Command based on the parsed command using if-else
-        if (command == CommandEnum.BYE) {
+        if (command == CommandEnum.FIND) {
+            return new FindCommand(input);
+        } else if (command == CommandEnum.BYE) {
             return new ByeCommand();
         } else if (command == CommandEnum.HELP) {
             return new HelpCommand();

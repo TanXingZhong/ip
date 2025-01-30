@@ -18,6 +18,7 @@ public class HelpCommand extends Command {
     public String help() {
         return "Available Commands:\n" + "-------------------\n"
                 + "HELP      - Displays the list of all commands.\n"
+                + "FIND      - Find tasks base on keyword. Usage: find <keyword>\n"
                 + "MARK      - Marks a task as completed. Usage: mark <task number>\n"
                 + "UNMARK    - Unmarks a completed task. Usage: unmark <task number>\n"
                 + "TODO      - Adds a todo. Usage: todo <task>\n"
