@@ -2,3 +2,6 @@ T | 1 | read book
 E | 1 | project meeting | 2019-10-10 10:30 | 2019-10-10 10:30
 T | 1 | cooking project
 T | 0 | read book
+T | 0 | cook
+E | 1 | cooking | 2025-10-10 10:30 | 2025-10-10 10:31
+E | 0 | cooking | 2025-10-10 10:30 | 2025-10-11 10:31
