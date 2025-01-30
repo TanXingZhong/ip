@@ -60,5 +60,18 @@ public class BobAndSteve {
             }
         }
     }
-}
 
+    public String getResponse(String input) {
+        try {
+            Command c = Parser.parse(input);
+            c.execute(taskList, ui, storage);
+            commandType = c.getClass().getSimpleName();
+            return c.getString();
+        } catch (BobAndSteveException e) {
+            return "Error: " + e.getMessage();
+        }
+    }
+    public String getCommandType() {
+        return commandType;
+    }
+}

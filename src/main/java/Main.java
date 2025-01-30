@@ -1,18 +1,33 @@
+import java.io.IOException;
+
 import bobandsteve.BobAndSteve;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 
 /**
- * The Main class is the entry point of the application.
- * It initializes the BobAndSteve class with a specific file
- * and runs the program.
+ * A GUI for Duke using FXML.
  */
-public class Main {
+public class Main extends Application {
 
-    /**
-     * The main method is the entry point for the Java application.
-     * It creates an instance of the BobAndSteve class and calls
-     * the `run` method to execute the program logic.
-     */
-    public static void main(String[] args) {
-        new BobAndSteve("data/bobAndSteve.txt").run();
+    private static final BobAndSteve bobandsteve = new BobAndSteve("data/bobAndSteve.txt");
+
+    @Override
+    public void start(Stage stage) {
+        try {
+            stage.setMinHeight(220);
+            stage.setMinWidth(417);
+            FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource("/view/MainWindow.fxml"));
+            AnchorPane ap = fxmlLoader.load();
+            Scene scene = new Scene(ap);
+            stage.setScene(scene);
+            stage.setTitle("Bob And Steve");
+            fxmlLoader.<MainWindow>getController().setDuke(bobandsteve);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }
