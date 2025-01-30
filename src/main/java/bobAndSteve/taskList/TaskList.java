@@ -30,11 +30,14 @@ public class TaskList {
                 String details = scanner.nextLine();
                 String[] type = details.split("\\|");
                 String isDone = type[1].trim().equals("1") ? "[X]" : "[ ]";
-                switch (type[0].trim()) {
-                    case "T" -> addTask(new Todo(type[2].trim(), isDone));
-                    case "D" -> addTask(new Deadline(type[2].trim(), isDone, type[3].trim()));
-                    case "E" ->
-                            addTask(new Event(type[2].trim(), isDone, type[3].trim(), type[4].trim()));
+                if (type[0].trim().equals("T")) {
+                    addTask(new Todo(type[2].trim(), isDone));
+                } else if (type[0].trim().equals("D")) {
+                    addTask(new Deadline(type[2].trim(), isDone, type[3].trim()));
+                } else if (type[0].trim().equals("E")) {
+                    addTask(new Event(type[2].trim(), isDone, type[3].trim(), type[4].trim()));
+                } else {
+                    throw new BobAndSteveException("Data file corrupted");
                 }
             }
         } catch (BobAndSteveException | ArrayIndexOutOfBoundsException error) {

@@ -14,35 +14,26 @@ public class Parser {
         } catch (IllegalArgumentException err) {
             throw new InvalidCommandException("Invalid command, Enter help to view all commands");
         }
-        switch (command) {
-            case BYE -> {
-                return new ByeCommand();
-            }
-            case HELP -> {
-                return new HelpCommand();
-            }
-            case LIST -> {
-                return new ListCommand();
-            }
-            case TODO -> {
-                return new TodoCommand(input);
-            }
-            case DEADLINE -> {
-                return new DeadlineCommand(input);
-            }
-            case EVENT -> {
-                return new EventCommand(input);
-            }
-            case UNMARK -> {
-                return new UnmarkCommand(input);
-            }
-            case MARK -> {
-                return new MarkCommand(input);
-            }
-            case DELETE -> {
-                return new DeleteCommand(input);
-            }
+        if (command == CommandEnum.BYE) {
+            return new ByeCommand();
+        } else if (command == CommandEnum.HELP) {
+            return new HelpCommand();
+        } else if (command == CommandEnum.LIST) {
+            return new ListCommand();
+        } else if (command == CommandEnum.TODO) {
+            return new TodoCommand(input);
+        } else if (command == CommandEnum.DEADLINE) {
+            return new DeadlineCommand(input);
+        } else if (command == CommandEnum.EVENT) {
+            return new EventCommand(input);
+        } else if (command == CommandEnum.UNMARK) {
+            return new UnmarkCommand(input);
+        } else if (command == CommandEnum.MARK) {
+            return new MarkCommand(input);
+        } else if (command == CommandEnum.DELETE) {
+            return new DeleteCommand(input);
+        } else {
+            throw new InvalidCommandException("Invalid command, Enter help to view all commands");
         }
-        return new HelpCommand();
     }
 }
