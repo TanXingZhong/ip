@@ -1,11 +1,11 @@
-package bobAndSteve;
+package bobandsteve;
 
-import bobAndSteve.command.Command;
-import bobAndSteve.exception.BobAndSteveException;
-import bobAndSteve.parser.Parser;
-import bobAndSteve.storage.Storage;
-import bobAndSteve.taskList.TaskList;
-import bobAndSteve.ui.Ui;
+import bobandsteve.command.Command;
+import bobandsteve.exception.BobAndSteveException;
+import bobandsteve.parser.Parser;
+import bobandsteve.storage.Storage;
+import bobandsteve.tasklist.TaskList;
+import bobandsteve.ui.Ui;
 
 public class BobAndSteve {
 

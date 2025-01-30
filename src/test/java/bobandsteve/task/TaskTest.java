@@ -3,10 +3,10 @@ package bobandsteve.task;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
-import bobAndSteve.exception.InvalidCommandFormatException;
-import bobAndSteve.task.*;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import bobandsteve.exception.InvalidCommandFormatException;
 
 public class TaskTest {
     @Test

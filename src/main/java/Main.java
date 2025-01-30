@@ -1,4 +1,4 @@
-import bobAndSteve.BobAndSteve;
+import bobandsteve.BobAndSteve;
 
 
 public class Main {

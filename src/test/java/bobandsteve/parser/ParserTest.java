@@ -3,13 +3,10 @@ package bobandsteve.parser;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
-
-import bobAndSteve.exception.BobAndSteveException;
-import bobAndSteve.parser.Parser;
 import org.junit.jupiter.api.Test;
 
-import bobAndSteve.command.ByeCommand;
-import bobAndSteve.exception.BobAndSteveException;
+import bobandsteve.command.ByeCommand;
+import bobandsteve.exception.BobAndSteveException;
 
 public class ParserTest {
     @Test
