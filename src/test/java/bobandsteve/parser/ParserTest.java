@@ -4,12 +4,10 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.fail;
 
 
-import bobAndSteve.exception.BobAndSteveException;
-import bobAndSteve.parser.Parser;
+import bobandsteve.exception.BobAndSteveException;
 import org.junit.jupiter.api.Test;
 
-import bobAndSteve.command.ByeCommand;
-import bobAndSteve.exception.BobAndSteveException;
+import bobandsteve.command.ByeCommand;
 
 public class ParserTest {
     @Test
