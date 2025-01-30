@@ -7,12 +7,24 @@ import bobandsteve.storage.Storage;
 import bobandsteve.tasklist.TaskList;
 import bobandsteve.ui.Ui;
 
+/**
+ * Represents the main entry point for the Bob and Steve task management application.
+ * This class handles the initialization of the application, processes user commands,
+ * and interacts with the task list, storage, and UI components.
+ */
 public class BobAndSteve {
 
     private TaskList taskList;
     private final Storage storage;
     private final Ui ui;
+    private String commandType = "";
 
+    /**
+     * Constructs a new BobAndSteve application with a specified file path for storage.
+     * Initializes the UI and storage components, and attempts to load the task list.
+     *
+     * @param filePath The path to the file where tasks are stored.
+     */
     public BobAndSteve(String filePath) {
         ui = new Ui();
         storage = new Storage(filePath);
@@ -24,6 +36,13 @@ public class BobAndSteve {
         }
     }
 
+    /**
+     * Runs the application, displaying the welcome message and processing user commands
+     * in a loop until the exit command is issued.
+     * <p>
+     * The user input is parsed and executed, with errors displayed when they occur.
+     * </p>
+     */
     public void run() {
         ui.showWelcome();
         boolean isExit = false;
@@ -42,3 +61,4 @@ public class BobAndSteve {
         }
     }
 }
+
