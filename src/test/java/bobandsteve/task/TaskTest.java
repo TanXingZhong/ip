@@ -23,7 +23,7 @@ public class TaskTest {
 
     @Test
     public void createDeadline_correctDateFormat_success() throws InvalidCommandFormatException {
-        Assertions.assertEquals("[D][ ] test (by: Jan 22 2025 08:30 AM)",
+        Assertions.assertEquals("[D][ ] test (by: Jan 22 2025 08:30 am)",
                 new Deadline("test", "[ ]", "2025-01-22 08:30").toString());
     }
 
@@ -36,7 +36,7 @@ public class TaskTest {
     @Test
     public void createDeadline_incorrectDateFormat_exceptionThrown() {
         try {
-            assertEquals("[D][ ] test (by: Jan 22 2025 08:30 AM)",
+            assertEquals("[D][ ] test (by: Jan 22 2025 08:30 am)",
                     new Deadline("test", "[ ]", "test").toString());
             fail();
         } catch (InvalidCommandFormatException error) {
@@ -46,7 +46,7 @@ public class TaskTest {
 
     @Test
     public void createEvent_startDateAfterendDate_success() throws InvalidCommandFormatException {
-        Assertions.assertEquals("[E][ ] test (at: Jan 22 2025 08:30 AM - 08:30 AM)",
+        Assertions.assertEquals("[E][ ] test (at: Jan 22 2025 08:30 am - 08:30 am)",
                 new Event("test", "[ ]", "2025-01-22 08:30", "2025-01-22 08:30").toString());
     }
 
@@ -58,20 +58,20 @@ public class TaskTest {
 
     @Test
     public void createEvent_testSameDate_success() throws InvalidCommandFormatException {
-        Assertions.assertEquals("[E][ ] test (at: Jan 22 2025 08:30 AM - 08:30 AM)",
+        Assertions.assertEquals("[E][ ] test (at: Jan 22 2025 08:30 am - 08:30 am)",
                 new Event("test", "[ ]", "2025-01-22 08:30", "2025-01-22 08:30").toString());
     }
 
     @Test
     public void createEvent_testDiffDate_success() throws InvalidCommandFormatException {
-        Assertions.assertEquals("[E][ ] test (from: Jan 22 2025 08:30 AM to: Jan 23 2025 08:30 AM)",
+        Assertions.assertEquals("[E][ ] test (from: Jan 22 2025 08:30 am to: Jan 23 2025 08:30 am)",
                 new Event("test", "[ ]", "2025-01-22 08:30", "2025-01-23 08:30").toString());
     }
 
     @Test
     public void createEvent_endTimeEarlierThanStartTime_exceptionThrown() {
         try {
-            assertEquals("[E][ ] test (at: Jan 22 2025 08:30 AM - 08:30 AM)",
+            assertEquals("[E][ ] test (at: Jan 22 2025 08:30 am - 08:30 am)",
                     new Event("test", "[ ]", "2025-01-22 09:30", "2025-01-22 08:30").toString());
             fail();
         } catch (InvalidCommandFormatException error) {
