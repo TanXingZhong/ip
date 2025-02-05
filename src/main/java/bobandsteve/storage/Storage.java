@@ -59,6 +59,7 @@ public class Storage {
     public void writeFile(TaskList taskList) {
         try {
             String newData = taskList.toString();
+            assert newData != null : "Expected to get a return data not null";
             FileWriter fw = new FileWriter("./data/bobAndSteve.txt");
             fw.write(newData);
             fw.close();
