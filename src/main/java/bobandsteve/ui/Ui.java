@@ -22,7 +22,6 @@ public class Ui {
      */
     public void showWelcome() {
         String name = "Bob and Steve";
-
         String greeting = "Hello! I'm " + name + " \n"
                 + "What can I do for you?\n";
         System.out.println(greeting);
