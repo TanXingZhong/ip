@@ -30,6 +30,7 @@ public class ByeCommand extends Command {
 
     @Override
     public String getString() {
-        return this.end();
+        this.response = this.end();
+        return this.response;
     }
 }

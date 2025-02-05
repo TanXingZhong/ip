@@ -12,7 +12,7 @@ import javafx.stage.Stage;
  */
 public class Main extends Application {
 
-    private static final BobAndSteve bobandsteve = new BobAndSteve("data/bobAndSteve.txt");
+    private static final BobAndSteve bobAndSteve = new BobAndSteve("data/bobAndSteve.txt");
 
     @Override
     public void start(Stage stage) {
@@ -24,7 +24,7 @@ public class Main extends Application {
             Scene scene = new Scene(ap);
             stage.setScene(scene);
             stage.setTitle("Bob And Steve");
-            fxmlLoader.<MainWindow>getController().setDuke(bobandsteve);
+            fxmlLoader.<MainWindow>getController().setBobAndSteve(bobAndSteve);
             stage.show();
         } catch (IOException e) {
             e.printStackTrace();

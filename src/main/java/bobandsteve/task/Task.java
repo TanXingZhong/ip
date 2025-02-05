@@ -11,36 +11,36 @@ import java.time.format.DateTimeFormatter;
 public abstract class Task {
 
     private final String description;
-    private String isDone;
+    private String done;
 
     /**
      * Constructs a new Task with the specified description and completion status.
      *
      * @param description The description of the task.
-     * @param isDone The status of the task (whether it's completed or not).
+     * @param done The status of the task (whether it's completed or not).
      */
-    public Task(String description, String isDone) {
+    public Task(String description, String done) {
         this.description = description;
-        this.isDone = isDone;
+        this.done = done;
     }
 
     /**
      * Marks the task as completed by setting its status to "[X]".
      */
     public void mark() {
-        this.isDone = "[X]";
+        this.done = "[X]";
     }
 
     /**
      * Marks the task as not completed by setting its status to "[ ]".
      */
     public void unmark() {
-        this.isDone = "[ ]";
+        this.done = "[ ]";
     }
 
     @Override
     public String toString() {
-        return isDone + " " + description;
+        return done + " " + description;
     }
 
     /**
@@ -63,7 +63,7 @@ public abstract class Task {
      *         or "0 | task description" if the task is not done.
      */
     public String toSaveFormat() {
-        if (isDone.equals("[X]")) {
+        if (done.equals("[X]")) {
             return "1 | " + this.description;
         } else {
             return "0 | " + this.description;

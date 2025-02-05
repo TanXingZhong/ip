@@ -12,6 +12,8 @@ import bobandsteve.ui.Ui;
  */
 public abstract class Command {
 
+    protected String response;
+
     /**
      * Executes the specific command. The implementation of this method
      * should define the behavior of the command, such as modifying

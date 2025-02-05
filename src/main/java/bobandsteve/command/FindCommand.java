@@ -13,7 +13,6 @@ import bobandsteve.ui.Ui;
 public class FindCommand extends Command {
 
     private final String keyword;
-    private String output;
 
     /**
      * Constructs a FindCommand object based on the input provided by the user.
@@ -32,8 +31,8 @@ public class FindCommand extends Command {
 
     @Override
     public void execute(TaskList taskList, Ui ui, Storage storage) throws BobAndSteveException {
-        this.output = taskList.find(keyword);
-        ui.printOutput(output);
+        this.response = taskList.find(keyword);
+        ui.printOutput(response);
     }
 
     @Override
@@ -43,7 +42,7 @@ public class FindCommand extends Command {
 
     @Override
     public String getString() {
-        return output;
+        return response;
     }
 }
 

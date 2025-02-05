@@ -42,6 +42,7 @@ public class HelpCommand extends Command {
 
     @Override
     public String getString() {
-        return help();
+        this.response = help();
+        return this.response;
     }
 }

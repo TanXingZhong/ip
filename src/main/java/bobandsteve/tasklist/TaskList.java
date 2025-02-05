@@ -194,15 +194,15 @@ public class TaskList {
      */
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
+        StringBuilder output = new StringBuilder();
         int size = taskList.size();
         for (int i = 0; i < size; i++) {
             Task t = taskList.get(i);
-            sb.append(t.toSaveFormat());
+            output.append(t.toSaveFormat());
             if (i < size - 1) {
-                sb.append("\n");
+                output.append("\n");
             }
         }
-        return sb.toString();
+        return output.toString();
     }
 }

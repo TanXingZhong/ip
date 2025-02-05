@@ -20,7 +20,7 @@ public class MainWindow extends AnchorPane {
     @FXML
     private Button sendButton;
 
-    private BobAndSteve bobandsteve;
+    private BobAndSteve bobAndSteve;
 
     private Image steveImage = new Image(this.getClass().getResourceAsStream("/images/steve.png"));
     private Image bobImage = new Image(this.getClass().getResourceAsStream("/images/bob.png"));
@@ -31,8 +31,8 @@ public class MainWindow extends AnchorPane {
     }
 
     /** Injects the Duke instance */
-    public void setDuke(BobAndSteve bobandsteve) {
-        this.bobandsteve = bobandsteve;
+    public void setBobAndSteve(BobAndSteve bobAndSteve) {
+        this.bobAndSteve = bobAndSteve;
     }
 
     /**
@@ -42,8 +42,8 @@ public class MainWindow extends AnchorPane {
     @FXML
     private void handleUserInput() {
         String input = userInput.getText();
-        String response = bobandsteve.getResponse(input);
-        String commandType = bobandsteve.getCommandType();
+        String response = bobAndSteve.getResponse(input);
+        String commandType = bobAndSteve.getCommandType();
         dialogContainer.getChildren().addAll(
                 DialogBox.getUserDialog(input, steveImage),
                 DialogBox.getDukeDialog(response, bobImage, commandType)
