@@ -49,6 +49,7 @@ public class BobAndSteve {
         while (!isExit) {
             try {
                 String fullCommand = ui.readCommand();
+                assert fullCommand != null : "Expected to read the command from given input not null";
                 ui.showLine();
                 Command c = Parser.parse(fullCommand);
                 c.execute(taskList, ui, storage);
@@ -66,7 +67,9 @@ public class BobAndSteve {
             Command c = Parser.parse(input);
             c.execute(taskList, ui, storage);
             commandType = c.getClass().getSimpleName();
-            return c.getString();
+            String response = c.getString();
+            assert response != null : "Expected a response from given input not null";
+            return response;
         } catch (BobAndSteveException e) {
             return "Error: " + e.getMessage();
         }
