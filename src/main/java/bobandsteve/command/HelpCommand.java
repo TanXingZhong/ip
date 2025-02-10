@@ -25,6 +25,7 @@ public class HelpCommand extends Command {
                 + "DEADLINE  - Adds a deadline. Usage: deadline <task> /by <date>\n"
                 + "EVENT     - Adds an event. Usage: event <task> /from <start> /to <end>\n"
                 + "LIST      - Displays all tasks.\n"
+                + "SORT      - Sorts the task by date.\n"
                 + "DELETE    - Deletes a task. Usage: delete <task number>\n"
                 + "BYE       - Exits the program.\n"
                 + "-------------------\n";

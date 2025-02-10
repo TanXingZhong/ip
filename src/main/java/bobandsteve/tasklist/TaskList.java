@@ -3,6 +3,7 @@ package bobandsteve.tasklist;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
 
@@ -185,6 +186,17 @@ public class TaskList {
      */
     public Task getTask(int pos) {
         return taskList.get(pos - 1);
+    }
+
+    /**
+     * Sorts the task list by deadline. If two tasks have the same deadline, they are
+     * sorted alphabetically by name. Tasks without a deadline are placed at the end.
+     *
+     * @return A confirmation message indicating that the task list has been sorted.
+     */
+    public String sort() {
+        Collections.sort(taskList);
+        return "Task list is sorted by date";
     }
 
     /**

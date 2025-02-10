@@ -36,18 +36,12 @@ public class TaskTest {
     @Test
     public void createDeadline_incorrectDateFormat_exceptionThrown() {
         try {
-            assertEquals("[D][ ] test (by: Jan 22 2025 08:30 am)",
+            assertEquals("[D][ ] test (by: Jan 22 2025, 08:30 AM)",
                     new Deadline("test", "[ ]", "test").toString());
             fail();
         } catch (InvalidCommandFormatException error) {
-            assertEquals("Invalid date format. Expected: YYYY-MM-DD HH:MM", error.getMessage());
+            assertEquals("Invalid date-time format. Expected: YYYY-MM-DD HH:MM", error.getMessage());
         }
-    }
-
-    @Test
-    public void createEvent_startDateAfterendDate_success() throws InvalidCommandFormatException {
-        Assertions.assertEquals("[E][ ] test (at: Jan 22 2025 08:30 am - 08:30 am)",
-                new Event("test", "[ ]", "2025-01-22 08:30", "2025-01-22 08:30").toString());
     }
 
     @Test
@@ -58,7 +52,7 @@ public class TaskTest {
 
     @Test
     public void createEvent_testSameDate_success() throws InvalidCommandFormatException {
-        Assertions.assertEquals("[E][ ] test (at: Jan 22 2025 08:30 am - 08:30 am)",
+        Assertions.assertEquals("[E][ ] test (from: Jan 22 2025 08:30 am to: Jan 22 2025 08:30 am)",
                 new Event("test", "[ ]", "2025-01-22 08:30", "2025-01-22 08:30").toString());
     }
 
@@ -71,12 +65,12 @@ public class TaskTest {
     @Test
     public void createEvent_endTimeEarlierThanStartTime_exceptionThrown() {
         try {
-            assertEquals("[E][ ] test (at: Jan 22 2025 08:30 am - 08:30 am)",
+            assertEquals("[E][ ] test (at: Jan 22 2025, 08:30 AM - 08:30 am)",
                     new Event("test", "[ ]", "2025-01-22 09:30", "2025-01-22 08:30").toString());
             fail();
         } catch (InvalidCommandFormatException error) {
-            assertEquals("Start date (2025-01-22 09:30) has to be before end date "
-                    + "(2025-01-22 08:30)", error.getMessage());
+            assertEquals("Start date-time (2025-01-22T09:30) must be before " +
+                    "end date-time (2025-01-22T08:30)", error.getMessage());
         }
     }
 }

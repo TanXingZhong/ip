@@ -1,8 +1,8 @@
 package bobandsteve.task;
 
 import java.time.DateTimeException;
-import java.time.LocalDate;
-import java.time.LocalTime;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import bobandsteve.exception.InvalidCommandFormatException;
 /**
@@ -12,8 +12,8 @@ import bobandsteve.exception.InvalidCommandFormatException;
  */
 public class Deadline extends Task {
 
-    private final LocalDate by;
-    private final LocalTime time;
+    private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+    private final LocalDateTime by;
 
     /**
      * Constructs a new Deadline task with the specified description, status, and deadline.
@@ -27,21 +27,24 @@ public class Deadline extends Task {
     public Deadline(String description, String isDone, String by) throws InvalidCommandFormatException {
         super(description, isDone);
         try {
-            String[] split = by.split(" ");
-            this.by = LocalDate.parse(split[0]);
-            this.time = LocalTime.parse(split[1]);
-        } catch (DateTimeException | ArrayIndexOutOfBoundsException error) {
-            throw new InvalidCommandFormatException("Invalid date format. Expected: YYYY-MM-DD HH:MM");
+            this.by = LocalDateTime.parse(by, FORMATTER);
+        } catch (DateTimeException error) {
+            throw new InvalidCommandFormatException("Invalid date-time format. Expected: YYYY-MM-DD HH:MM");
         }
     }
 
     @Override
     public String toString() {
-        return "[D]" + super.toString() + " (by: " + formatDate(this.by, this.time) + ")";
+        return "[D]" + super.toString() + " (by: " + formatDateTime(this.by) + ")";
     }
 
     @Override
     public String toSaveFormat() {
-        return "D | " + super.toSaveFormat() + " | " + this.by.toString() + " " + this.time.toString();
+        return "D | " + super.toSaveFormat() + " | " + this.by.format(FORMATTER);
+    }
+
+    @Override
+    public LocalDateTime getDeadline() {
+        return by;
     }
 }

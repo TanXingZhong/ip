@@ -1,8 +1,7 @@
 package bobandsteve.task;
 
 import java.time.DateTimeException;
-import java.time.LocalDate;
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 import bobandsteve.exception.InvalidCommandFormatException;
@@ -12,10 +11,9 @@ import bobandsteve.exception.InvalidCommandFormatException;
  */
 public class Event extends Task {
 
-    private final LocalDate startDate;
-    private final LocalDate endDate;
-    private final LocalTime startTime;
-    private final LocalTime endTime;
+    private static final DateTimeFormatter FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm");
+    private final LocalDateTime startDateTime;
+    private final LocalDateTime endDateTime;
 
     /**
      * Constructs a new Event task with the specified description, status, start, and end times.
@@ -30,36 +28,33 @@ public class Event extends Task {
     public Event(String description, String isDone, String start, String end) throws InvalidCommandFormatException {
         super(description, isDone);
         try {
-            String[] startSplit = start.split(" ");
-            String[] endSplit = end.split(" ");
-            this.startDate = LocalDate.parse(startSplit[0]);
-            this.startTime = LocalTime.parse(startSplit[1]);
-            this.endDate = LocalDate.parse(endSplit[0]);
-            this.endTime = LocalTime.parse(endSplit[1]);
-            if (startDate.isAfter(endDate) || startTime.isAfter(endTime)) {
-                throw new InvalidCommandFormatException("Start date (" + startDate + " " + startTime + ")"
-                        + " has to be before end date (" + endDate + " " + endTime + ")");
+            this.startDateTime = LocalDateTime.parse(start, FORMATTER);
+            this.endDateTime = LocalDateTime.parse(end, FORMATTER);
+
+            if (startDateTime.isAfter(endDateTime)) {
+                throw new InvalidCommandFormatException("Start date-time (" + startDateTime + ")"
+                        + " must be before end date-time (" + endDateTime + ")");
             }
-        } catch (DateTimeException | ArrayIndexOutOfBoundsException error) {
-            throw new InvalidCommandFormatException("Invalid date format. Expected: YYYY-MM-DD HH:MM");
+        } catch (DateTimeException error) {
+            throw new InvalidCommandFormatException("Invalid date-time format. Expected: YYYY-MM-DD HH:MM");
         }
     }
 
     @Override
     public String toString() {
-        if (startDate.isEqual(endDate)) {
-            return "[E]" + super.toString() + " (at: " + formatDate(startDate, startTime) + " - "
-                    + endTime.format(DateTimeFormatter.ofPattern("hh:mm a")) + ")";
-        } else {
-            return "[E]" + super.toString() + " (from: " + formatDate(startDate, startTime)
-                    + " to: " + formatDate(endDate, endTime) + ")";
-        }
+        return "[E]" + super.toString() + " (from: " + formatDateTime(startDateTime)
+                + " to: " + formatDateTime(endDateTime) + ")";
     }
-
 
     @Override
     public String toSaveFormat() {
-        return "E" + " | " + super.toSaveFormat() + " | " + this.startDate.toString() + " "
-                + this.startTime.toString() + " | " + this.endDate.toString() + " " + this.endTime.toString();
+        return "E" + " | " + super.toSaveFormat() + " | " + startDateTime.format(FORMATTER) + " | "
+                + endDateTime.format(FORMATTER);
     }
+
+    @Override
+    public LocalDateTime getDeadline() {
+        return startDateTime;
+    }
+
 }

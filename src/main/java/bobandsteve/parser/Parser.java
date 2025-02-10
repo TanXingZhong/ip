@@ -10,6 +10,7 @@ import bobandsteve.command.FindCommand;
 import bobandsteve.command.HelpCommand;
 import bobandsteve.command.ListCommand;
 import bobandsteve.command.MarkCommand;
+import bobandsteve.command.SortCommand;
 import bobandsteve.command.TodoCommand;
 import bobandsteve.command.UnmarkCommand;
 import bobandsteve.exception.BobAndSteveException;
@@ -40,7 +41,6 @@ public class Parser {
             throw new InvalidCommandException("Invalid command, Enter help to view all commands");
         }
 
-        // Return the appropriate Command based on the parsed command using if-else
         if (command == CommandEnum.FIND) {
             return new FindCommand(input);
         } else if (command == CommandEnum.BYE) {
@@ -61,6 +61,8 @@ public class Parser {
             return new MarkCommand(input);
         } else if (command == CommandEnum.DELETE) {
             return new DeleteCommand(input);
+        } else if (command == CommandEnum.SORT) {
+            return new SortCommand();
         } else {
             throw new InvalidCommandException("Invalid command, Enter help to view all commands");
         }
