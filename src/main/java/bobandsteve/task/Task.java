@@ -1,14 +1,13 @@
 package bobandsteve.task;
 
-import java.time.LocalDate;
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 /**
  * Represents a general task in the BobAndSteve application.
  * A task has a description, a completion status, and methods to mark/unmark it as done.
  */
-public abstract class Task {
+public abstract class Task implements Comparable<Task> {
 
     private final String description;
     private String done;
@@ -44,15 +43,14 @@ public abstract class Task {
     }
 
     /**
-     * Formats the given date and time into a readable string.
+     * Formats a LocalDateTime into a readable string.
      *
-     * @param date The date to be formatted.
-     * @param time The time to be formatted.
-     * @return A formatted string in the format "MMM d yyyy hh:mm a".
+     * @param dateTime The LocalDateTime to format.
+     * @return A formatted string in the pattern "MMM d yyyy, hh:mm a" (e.g., "Sep 10 2024, 02:30 PM").
      */
-    public String formatDate(LocalDate date, LocalTime time) {
-        return date.format(DateTimeFormatter.ofPattern("MMM d yyyy")) + " "
-                + time.format(DateTimeFormatter.ofPattern("hh:mm a"));
+    public String formatDateTime(LocalDateTime dateTime) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM d yyyy hh:mm a");
+        return dateTime.format(formatter).replaceAll("AM", "am").replaceAll("PM", "am");
     }
 
     /**
@@ -68,5 +66,27 @@ public abstract class Task {
         } else {
             return "0 | " + this.description;
         }
+    }
+
+    public LocalDateTime getDeadline() {
+        return null;
+    }
+
+    @Override
+    public int compareTo(Task other) {
+        LocalDateTime thisDeadline = this.getDeadline();
+        LocalDateTime otherDeadline = other.getDeadline();
+        if (thisDeadline == null && otherDeadline == null) {
+            return this.description.compareTo(other.description);
+        } else if (thisDeadline == null) {
+            return 1;
+        } else if (otherDeadline == null) {
+            return -1;
+        }
+        int result = thisDeadline.compareTo(otherDeadline);
+        if (result == 0) {
+            return this.description.compareTo(other.description);
+        }
+        return result;
     }
 }

@@ -13,6 +13,7 @@ public enum CommandEnum {
     DEADLINE,
     EVENT,
     LIST,
+    SORT,
     DELETE,
     FIND,
     BYE;
