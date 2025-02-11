@@ -50,7 +50,7 @@ public abstract class Task implements Comparable<Task> {
      */
     public String formatDateTime(LocalDateTime dateTime) {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMM d yyyy hh:mm a");
-        return dateTime.format(formatter).replaceAll("AM", "am").replaceAll("PM", "am");
+        return dateTime.format(formatter).replaceAll("AM", "am").replaceAll("PM", "pm");
     }
 
     /**
