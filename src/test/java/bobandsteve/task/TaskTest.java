@@ -69,8 +69,8 @@ public class TaskTest {
                     new Event("test", "[ ]", "2025-01-22 09:30", "2025-01-22 08:30").toString());
             fail();
         } catch (InvalidCommandFormatException error) {
-            assertEquals("Start date-time (2025-01-22T09:30) must be before " +
-                    "end date-time (2025-01-22T08:30)", error.getMessage());
+            assertEquals("Start date-time (2025-01-22T09:30) must be before "
+                    + "end date-time (2025-01-22T08:30)", error.getMessage());
         }
     }
 }
