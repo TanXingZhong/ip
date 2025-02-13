@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 import bobandsteve.exception.BobAndSteveException;
 import bobandsteve.exception.ListIndexOutOfBoundException;
@@ -155,18 +156,10 @@ public class TaskList {
      * @return A formatted string of a list of tasks with matching keyword.
      */
     public String find(String keyword) {
-        StringBuilder output = new StringBuilder("Here are the matching tasks in your list:\n");
-        for (int i = 0; i < taskList.size(); i++) {
-            Task task = taskList.get(i);
-            if (task.toString().contains(keyword)) {
-                int index = i + 1;
-                output.append(index).append(".").append(taskList.get(i));
-                if (i < taskList.size() - 1) {
-                    output.append("\n");
-                }
-            }
-        }
-        return output.toString();
+        return taskList.stream()
+                .filter(task -> task.toString().contains(keyword))
+                .map(task -> (taskList.indexOf(task)) + 1 + "." + task)
+                .collect(Collectors.joining("\n", "Here are the matching tasks in your list:\n", ""));
     }
 
     /**
