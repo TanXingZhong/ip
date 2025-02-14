@@ -1,9 +1,1 @@
-E | 1 | project meeting | 2019-10-10 10:30 | 2019-10-10 10:30
-D | 0 | test | 2020-10-10 10:44
-E | 0 | aooking | 2025-10-10 10:30 | 2025-10-11 10:31
-E | 1 | cooking | 2025-10-10 10:30 | 2025-10-10 10:31
-T | 0 | YAY
-T | 1 | cook
-T | 1 | cooking project
-T | 1 | read book
-T | 1 | read book
+T | 1 | borrow book
