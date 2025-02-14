@@ -1,6 +1,6 @@
 # Bob and Steve Chat box User Guide
 
-![Ui picture](./docs/Ui.png)
+![Ui picture](./Ui.png)
 
 Welcome to bob and steve the **CLI Chat box**! This command-line application helps you manage tasks through a variety of commands. Whether you're adding todos, deadlines, or events, this guide will show you how to use each command along with sample outputs.
 
