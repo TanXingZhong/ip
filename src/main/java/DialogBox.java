@@ -49,28 +49,9 @@ public class DialogBox extends HBox {
         return new DialogBox(text, img);
     }
 
-    private void changeDialogStyle(String commandType) {
-        final String deadlineCommand = "DeadlineCommand";
-        final String markCommand = "MarkCommand";
-        final String eventCommand = "EventCommand";
-        final String todoCommand = "TodoCommand";
-        final String unmarkCommand = "UnmarkCommand";
-        final String deleteCommand = "DeleteCommand";
-        switch (commandType) {
-        case deadlineCommand:
-        case eventCommand:
-        case todoCommand:
-        case markCommand:
-        case unmarkCommand:
-        case deleteCommand:
-        default: // Do nothing
-        }
-    }
-
-    public static DialogBox getDukeDialog(String text, Image img, String commandType) {
+    public static DialogBox getDukeDialog(String text, Image img) {
         var db = new DialogBox(text, img);
         db.flip();
-        db.changeDialogStyle(commandType);
         return db;
     }
 }

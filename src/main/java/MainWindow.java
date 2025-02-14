@@ -1,11 +1,16 @@
 import bobandsteve.BobAndSteve;
+import javafx.animation.FadeTransition;
+import javafx.animation.PauseTransition;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.util.Duration;
 
 /**
  * Controller for the main GUI.
@@ -33,6 +38,31 @@ public class MainWindow extends AnchorPane {
     /** Injects the Duke instance */
     public void setBobAndSteve(BobAndSteve bobAndSteve) {
         this.bobAndSteve = bobAndSteve;
+        welcome();
+    }
+
+    private void welcome() {
+        String welcome = "Welcome, I am Bob and you must be Steve! How can I help you? "
+                + "Enter 'help' so I can assist you.";
+        Node dukeDialog = DialogBox.getDukeDialog(welcome, bobImage);
+        dialogContainer.getChildren().add(dukeDialog);
+    }
+
+    private void disableInput() {
+        userInput.setDisable(true);
+        sendButton.setDisable(true);
+    }
+
+    private void fadeAndClose(Node node) {
+        FadeTransition fade = new FadeTransition(Duration.seconds(1), node);
+        fade.setFromValue(1.0);
+        fade.setToValue(0.0);
+        fade.setOnFinished(event -> {
+            PauseTransition delay = new PauseTransition(Duration.seconds(2));
+            delay.setOnFinished(e -> Platform.exit());
+            delay.play();
+        });
+        fade.play();
     }
 
     /**
@@ -49,8 +79,12 @@ public class MainWindow extends AnchorPane {
         assert commandType != null : "Expected a command type from user response should not be null";
         dialogContainer.getChildren().addAll(
                 DialogBox.getUserDialog(input, steveImage),
-                DialogBox.getDukeDialog(response, bobImage, commandType)
+                DialogBox.getDukeDialog(response, bobImage)
         );
+        if ("bye".equals(input.trim())) {
+            fadeAndClose(this);
+            disableInput();
+        }
         userInput.clear();
     }
 }
