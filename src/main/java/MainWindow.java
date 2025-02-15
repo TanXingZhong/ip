@@ -10,6 +10,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.ImagePattern;
 import javafx.util.Duration;
 
 /**
@@ -44,8 +45,7 @@ public class MainWindow extends AnchorPane {
     private void welcome() {
         String welcome = "Welcome, I am Bob and you must be Steve! How can I help you? "
                 + "Enter 'help' so I can assist you.";
-        Node dukeDialog = DialogBox.getDukeDialog(welcome, bobImage);
-        dialogContainer.getChildren().add(dukeDialog);
+        dialogContainer.getChildren().add(DialogBox.getBobDialog(welcome, bobImage, "bob-chat"));
     }
 
     private void disableInput() {
@@ -78,8 +78,8 @@ public class MainWindow extends AnchorPane {
         String commandType = bobAndSteve.getCommandType();
         assert commandType != null : "Expected a command type from user response should not be null";
         dialogContainer.getChildren().addAll(
-                DialogBox.getUserDialog(input, steveImage),
-                DialogBox.getDukeDialog(response, bobImage)
+                DialogBox.getUserDialog(input, steveImage, "steve-chat"),
+                DialogBox.getBobDialog(response, bobImage, "bob-chat")
         );
         if ("bye".equals(input.trim())) {
             fadeAndClose(this);
