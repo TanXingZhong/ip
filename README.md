@@ -85,7 +85,7 @@ Now you have 3 tasks in the list.
 
 ## Finds task base on keyword: ```find <keyword>```
 ### Finds all the tasks where they have related keyword.
-Example: `find Team`
+Example: `find book`
 
 Expected output:
 ```
