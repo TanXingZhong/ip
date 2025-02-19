@@ -9,6 +9,7 @@ Welcome to bob and steve the **CLI Chat box**! This command-line application hel
 - [Overview](#overview)
 - [Available Commands](#available-commands)
 - [Features](#features)
+- [FAQ](#faq)
 
 # Overview
 
@@ -161,3 +162,15 @@ Expected output:
 ```
 Bye. Hope to see you again soon!
 ```
+# FAQ
+
+### Q1. Can I use uppercase commands?
+**Answer:** Yes, you may use either lowercase, uppercase, or even mixed case.
+
+### Q2. What happens if I enter an invalid command?
+**Answer:** The app will prompt you with a guide towards the correct command. Otherwise, you can enter `help`
+to see more options.
+
+### Q3. Where is the data saved?
+**Answer:** Once you launch the app, it will create a folder called `data`, which contains a `bobAndSteve.txt`
+file that will be reused.
