@@ -8,7 +8,7 @@ Welcome to bob and steve the **CLI Chat box**! This command-line application hel
 
 - [Overview](#overview)
 - [Available Commands](#available-commands)
-- [Command Demonstrations](#command-demonstrations)
+- [Features](#features)
 
 # Overview
 
@@ -30,11 +30,13 @@ SORT      - Sorts the tasks by date.
 DELETE    - Deletes a task. Usage: delete <task number>
 BYE       - Exits the program.
 ```
-# Command Demonstrations
+# Features
 
-## Adding a todo task: ```todo <task>```
+## Adding a todo task: ```todo```
 ### Creates a task and add it to the list.
-Example: `todo borrow bookk`
+Format: `todo <task>`
+
+Example: `todo borrow book`
 
 Expected output:
 ```
@@ -43,8 +45,12 @@ Got it. I've added this task:
 Now you have 1 tasks in the list.
 ```
 
-## Marking a task as done: ```mark <task index>```
+## Marking a task as done: ```mark```
 ### Mark a task in the task list as done.
+Format: `mark <task index>`
+- The `<index>` can be seen when using list command.
+- The `<index>` has to be between 1 and the last number in the list.
+
 Example: `mark 1`
 
 Expected output:
@@ -53,8 +59,12 @@ Nice! I've marked this task as done:
 [T][X] borrow book
 ```
 
-## Unmarking a task as not done: ```mark <task index>```
+## Unmarking a task as not done: ```unmark```
 ### Unmark a task in the task list as not done.
+Format: `unmark <task index>`
+- The `<index>` can be seen when using list command.
+- The `<index>` has to be between 1 and the last number in the list.
+
 Example: `unmark 1`
 
 Expected output:
@@ -62,8 +72,11 @@ Expected output:
 OK, I've marked this task as not done yet:
 [T][ ] borrow book
 ```
-## Adding a deadline task: ```deadline <task> /by <date>```
+## Adding a deadline task: ```deadline```
 ### Creates a deadline task and add it to the list.
+Format: `deadline <task> /by <date>`
+- The `<date>` has to be in `YYYY-MM-DD HH:MM` format.
+
 Example: `deadline Submit report /by 2025-04-01 10:30`
 
 Expected output:
@@ -72,8 +85,12 @@ Got it. I've added this task:
 [D][] Submit report (by: Apr 1 2025 10:30am)
 Now you have 2 tasks in the list.
 ```
-## Adding an event task: ```event <task> /from <start> /to <end>```
+## Adding an event task: ```event```
 ### Creates an event task and add it to the list.
+Format: `event <task> /from <start> /to <end>`
+- The `<date>` has to be in `YYYY-MM-DD HH:MM` format.
+- The `<start>` has to be earlier then `<end>` date.
+
 Example: `event Team outing /from 2025-05-10 10:30 /to 2025-05-12 10:30`
 
 Expected output:
@@ -83,8 +100,10 @@ Got it. I've added this task:
 Now you have 3 tasks in the list.
 ```
 
-## Finds task base on keyword: ```find <keyword>```
+## Finds task base on keyword: ```find```
 ### Finds all the tasks where they have related keyword.
+Format: `find <keyword>`
+
 Example: `find book`
 
 Expected output:
@@ -93,8 +112,10 @@ Here are the matching tasks in your list.
 1.[T][] borrow book
 ```
 
-## List tasks ```list```
+## List tasks: ```list```
 ### List every single tasks that was stored.
+Format: `list`
+
 Example: `list`
 
 Expected output:
@@ -104,16 +125,23 @@ Here are the matching tasks in your list.
 2.[D][] Submit report (by: Apr 1 2025 10:30am)
 3.[E][] Team outing (from: May 10 2025 10:30am to May 12 2025 10:30am)
 ```
-## Sorts tasks```sort```
-###  Sorts all the tasks by shortest date order.
+## Sorts tasks:```sort```
+###  Sorts all tasks in ascending order by date.
+Format: `sort`
+- The items with date will be above followed by the ones without.
+
 Example: `sort`
 
 Expected output:
 ```
 Task list is sorted by date
 ```
-## Deletes a task ```delete <task index>```
+## Deleting a task: ```delete```
 ### Deletes the chosen tasks base on index number.
+Format: `delete <task index>`
+- The `<index>` can be seen when using list command.
+- The `<index>` has to be between 1 and the last number in the list.
+
 Example: `delete 3`
 
 Expected output:
@@ -123,8 +151,10 @@ Noted. I've removed this task:
 Now you have 2 tasks in the list.
 ```
 
-## Bye ```bye```
+## Bye command: ```bye```
 ### Exits the application.
+Format: `bye`
+
 Example: `bye`
 
 Expected output:
