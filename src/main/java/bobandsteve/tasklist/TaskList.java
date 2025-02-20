@@ -157,10 +157,16 @@ public class TaskList {
      * @return A formatted string containing tasks that match the specified keywords.
      */
     public String find(String keyword) {
-        return taskList.stream()
+        String result = taskList.stream()
                 .filter(task -> task.toString().contains(keyword))
                 .map(task -> (taskList.indexOf(task)) + 1 + "." + task)
                 .collect(Collectors.joining("\n", "Here are the matching tasks in your list:\n", ""));
+
+        if (result.equals("Here are the matching tasks in your list:\n")) {
+            return "No tasks were found matching the keyword: \"" + keyword + "\".";
+        }
+
+        return result;
     }
 
     /**

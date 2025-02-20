@@ -23,7 +23,7 @@ public class FindCommand extends Command {
      */
     public FindCommand(String input) throws InvalidCommandFormatException {
         String[] split = input.split(" ", 2);
-        if (split.length < 2 || split[1].isEmpty()) {
+        if (split.length < 2 || split[1].trim().isEmpty()) {
             throw new InvalidCommandFormatException("You must specify the keyword to search.");
         }
         this.keyword = split[1];
