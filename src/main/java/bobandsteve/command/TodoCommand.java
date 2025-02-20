@@ -29,6 +29,9 @@ public class TodoCommand extends Command {
                 throw new InvalidCommandFormatException("You must specify the task in the format: <task>");
             }
             this.description = split[1].trim();
+            if (description.isEmpty()) {
+                throw new InvalidCommandFormatException("You must specify the task in the format: <task>");
+            }
         } catch (ArrayIndexOutOfBoundsException e) {
             throw new InvalidCommandFormatException("You must specify the task in the format: <task>");
         }
