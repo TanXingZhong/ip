@@ -148,6 +148,9 @@ public class TaskList {
                 output.append("\n");
             }
         }
+        if (output.toString().equals("Here are the tasks in your list:")) {
+            return "Your task list is empty!";
+        }
         return output.toString();
     }
 
