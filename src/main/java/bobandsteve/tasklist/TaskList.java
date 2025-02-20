@@ -152,8 +152,9 @@ public class TaskList {
     }
 
     /**
-     * Search and display the list of task based on matching keywords.
-     * @return A formatted string of a list of tasks with matching keyword.
+     * Searches for tasks that match the given keywords and returns a formatted list.
+     *
+     * @return A formatted string containing tasks that match the specified keywords.
      */
     public String find(String keyword) {
         return taskList.stream()
