@@ -161,7 +161,7 @@ public class TaskList {
      */
     public String find(String keyword) {
         String result = taskList.stream()
-                .filter(task -> task.toString().contains(keyword))
+                .filter(task -> task.getDescription().contains(keyword))
                 .map(task -> (taskList.indexOf(task)) + 1 + "." + task)
                 .collect(Collectors.joining("\n", "Here are the matching tasks in your list:\n", ""));
 

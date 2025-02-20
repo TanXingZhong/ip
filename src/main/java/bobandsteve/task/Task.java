@@ -72,6 +72,10 @@ public abstract class Task implements Comparable<Task> {
         return null;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
     @Override
     public int compareTo(Task other) {
         LocalDateTime thisDeadline = this.getDeadline();
