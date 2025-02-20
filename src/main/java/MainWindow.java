@@ -35,7 +35,7 @@ public class MainWindow extends AnchorPane {
         scrollPane.vvalueProperty().bind(dialogContainer.heightProperty());
     }
 
-    /** Injects the Duke instance */
+    /** Injects the Bob and steve instance */
     public void setBobAndSteve(BobAndSteve bobAndSteve) {
         this.bobAndSteve = bobAndSteve;
         welcome();
