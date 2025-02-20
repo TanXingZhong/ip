@@ -6,14 +6,9 @@ Welcome to bob and steve the **CLI Chat box**! This command-line application hel
 
 # Table of Contents
 
-- [Overview](#overview)
 - [Available Commands](#available-commands)
 - [Features](#features)
 - [FAQ](#faq)
-
-# Overview
-
-The CLI chat box is designed to help you efficiently manage your daily tasks. It supports adding new tasks, marking tasks as complete, sorting by dates, and more—all from the terminal.
 
 # Available Commands
 
